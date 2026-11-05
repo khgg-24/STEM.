@@ -1,38 +1,99 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Trận Nguyện Vọng 2D Hướng Nghiệp Tự Động | Quản Trị Rủi Ro Tuyển Sinh</title>
+    <title>Ma Trận Nguyện Vọng 2D | Công Cụ Tự Động Rải Nguyện Vọng An Toàn & Quản Trị Rủi Ro Tuyển Sinh 0 Đồng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #0F172A;
-            --bg-darker: #090D16;
-            --glass-bg: rgba(30, 41, 59, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-highlight: rgba(255, 255, 255, 0.05);
-            --text-main: #F8FAFC;
+        /* ==========================================================================
+           1. HỆ THỐNG BIẾN MÀU CHỦ ĐỀ TỐI (DARK MODE - MẶC ĐỊNH) & SÁNG (LIGHT MODE)
+           ========================================================================== */
+        :root, [data-theme="dark"] {
+            --bg-body: #0F172A;
+            --bg-gradient-1: rgba(6, 182, 212, 0.14);
+            --bg-gradient-2: rgba(139, 92, 246, 0.14);
+            --bg-gradient-3: rgba(236, 72, 153, 0.10);
+            --surface-glass: rgba(30, 41, 59, 0.72);
+            --surface-card: rgba(15, 23, 42, 0.82);
+            --surface-card-hover: rgba(30, 41, 59, 0.95);
+            --surface-input: rgba(15, 23, 42, 0.90);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --border-highlight: rgba(6, 182, 212, 0.45);
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
             --text-muted: #94A3B8;
-            
-            /* Neon & Dracula Accents */
-            --neon-cyan: #06B6D4;
-            --vivid-violet: #8B5CF6;
-            --hot-pink: #EC4899;
+            --shadow-panel: 0 12px 32px -4px rgba(0, 0, 0, 0.45);
+            --shadow-card: 0 6px 16px -2px rgba(0, 0, 0, 0.35);
 
-            /* 4 Tông màu Ma trận chuẩn */
-            --safe-green: #10B981;
-            --safe-bg: rgba(16, 185, 129, 0.12);
-            --match-amber: #F59E0B;
-            --match-bg: rgba(245, 158, 11, 0.12);
-            --risk-orange: #F97316;
-            --risk-bg: rgba(249, 115, 22, 0.12);
-            --dream-red: #EF4444;
-            --dream-bg: rgba(239, 68, 68, 0.12);
+            /* Accent Neon */
+            --accent-cyan: #06B6D4;
+            --accent-violet: #8B5CF6;
+            --accent-pink: #EC4899;
+
+            /* 4 Vùng Ma Trận */
+            --safe-color: #10B981;
+            --safe-bg: rgba(16, 185, 129, 0.14);
+            --safe-border: rgba(16, 185, 129, 0.40);
+
+            --match-color: #F59E0B;
+            --match-bg: rgba(245, 158, 11, 0.14);
+            --match-border: rgba(245, 158, 11, 0.40);
+
+            --risk-color: #F97316;
+            --risk-bg: rgba(249, 115, 22, 0.14);
+            --risk-border: rgba(249, 115, 22, 0.40);
+
+            --dream-color: #EF4444;
+            --dream-bg: rgba(239, 68, 68, 0.14);
+            --dream-border: rgba(239, 68, 68, 0.40);
         }
 
+        [data-theme="light"] {
+            --bg-body: #F8FAFC;
+            --bg-gradient-1: rgba(6, 182, 212, 0.08);
+            --bg-gradient-2: rgba(139, 92, 246, 0.08);
+            --bg-gradient-3: rgba(236, 72, 153, 0.05);
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --surface-card: #FFFFFF;
+            --surface-card-hover: #F1F5F9;
+            --surface-input: #FFFFFF;
+            --border-color: #E2E8F0;
+            --border-highlight: #0891B2;
+            --text-primary: #1E293B;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --shadow-panel: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+
+            /* Accent */
+            --accent-cyan: #0891B2;
+            --accent-violet: #7C3AED;
+            --accent-pink: #DB2777;
+
+            /* 4 Vùng Ma Trận (Độ tương phản chuẩn trên nền sáng) */
+            --safe-color: #059669;
+            --safe-bg: rgba(16, 185, 129, 0.10);
+            --safe-border: rgba(5, 150, 105, 0.35);
+
+            --match-color: #D97706;
+            --match-bg: rgba(245, 158, 11, 0.12);
+            --match-border: rgba(217, 119, 6, 0.35);
+
+            --risk-color: #EA580C;
+            --risk-bg: rgba(249, 115, 22, 0.10);
+            --risk-border: rgba(234, 88, 12, 0.35);
+
+            --dream-color: #DC2626;
+            --dream-bg: rgba(239, 68, 68, 0.10);
+            --dream-border: rgba(220, 38, 38, 0.35);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -41,16 +102,17 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-body);
             background-image: 
-                radial-gradient(circle at 12% 18%, rgba(6, 182, 212, 0.14) 0%, transparent 35%),
-                radial-gradient(circle at 88% 15%, rgba(139, 92, 246, 0.14) 0%, transparent 35%),
-                radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 10% 15%, var(--bg-gradient-1) 0%, transparent 35%),
+                radial-gradient(circle at 90% 12%, var(--bg-gradient-2) 0%, transparent 35%),
+                radial-gradient(circle at 50% 88%, var(--bg-gradient-3) 0%, transparent 40%);
             background-attachment: fixed;
-            color: var(--text-main);
+            color: var(--text-primary);
             line-height: 1.5;
             min-height: 100vh;
-            padding: 24px 16px 60px;
+            padding: 20px 16px 64px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -58,21 +120,53 @@
             margin: 0 auto;
         }
 
-        /* Glassmorphism Card Utility */
         .glass-panel {
-            background: var(--glass-bg);
+            background: var(--surface-glass);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
-            box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 var(--glass-highlight);
+            box-shadow: var(--shadow-panel);
+            transition: all 0.3s ease;
         }
 
-        /* Header */
+        /* ==========================================================================
+           3. NÚT CHUYỂN ĐỔI SÁNG / TỐI CỐ ĐỊNH GÓC TRÊN PHẢI (THEME SWITCHER)
+           ========================================================================== */
+        .theme-switcher-fixed {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            z-index: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-highlight);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .theme-switcher-fixed:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.28);
+        }
+
+        /* ==========================================================================
+           4. HEADER
+           ========================================================================== */
         header {
             text-align: center;
-            margin-bottom: 24px;
-            padding: 24px;
+            padding: 28px 24px 24px;
+            margin-bottom: 22px;
             position: relative;
             overflow: hidden;
         }
@@ -83,82 +177,110 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--vivid-violet), var(--hot-pink));
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet), var(--accent-pink));
         }
 
-        .badge-header {
+        .badge-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             padding: 5px 14px;
             border-radius: 999px;
-            font-size: 12px;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            background: rgba(6, 182, 212, 0.15);
-            color: #22D3EE;
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            margin-bottom: 12px;
+            letter-spacing: 0.06em;
+            background: rgba(6, 182, 212, 0.14);
+            color: var(--accent-cyan);
+            border: 1px solid var(--border-highlight);
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+            font-size: clamp(1.35rem, 2.5vw, 2.05rem);
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(90deg, #FFFFFF, #93C5FD, #C4B5FD);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            max-width: 820px;
-            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            max-width: 840px;
+            margin: 0 auto 14px;
         }
 
-        .formula-pill {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 6px 14px;
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            border-radius: 8px;
+        .formula-bar {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            padding: 8px 16px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.82rem;
-            color: #E2E8F0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
         }
 
-        .formula-pill span {
-            color: #22D3EE;
-            font-weight: 700;
+        .formula-bar strong {
+            color: var(--accent-cyan);
         }
 
-        /* Section 1: Input Form */
+        /* ==========================================================================
+           5. FORM NHẬP LIỆU & THANH CÔNG CỤ
+           ========================================================================== */
         .input-section {
-            padding: 24px;
-            margin-bottom: 24px;
+            padding: 22px;
+            margin-bottom: 22px;
         }
 
-        .section-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+        .section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
-            color: #E2E8F0;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scale-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: var(--surface-card);
+            padding: 7px 13px;
+            border-radius: 9px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .scale-switch input {
+            accent-color: var(--accent-violet);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
             align-items: end;
         }
 
@@ -169,7 +291,7 @@
         }
 
         .form-group label {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
             display: flex;
@@ -177,325 +299,315 @@
         }
 
         .form-control {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            color: var(--text-main);
-            padding: 10px 12px;
+            width: 100%;
+            background: var(--surface-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 11px 12px;
             border-radius: 10px;
             font-size: 0.92rem;
             font-family: inherit;
-            transition: all 0.2s ease;
+            font-weight: 500;
             outline: none;
+            transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            border-color: var(--neon-cyan);
+            border-color: var(--accent-cyan);
             box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
         }
 
         input[type="number"].form-control {
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            color: #38BDF8;
+            font-weight: 700;
+            color: var(--accent-cyan);
         }
 
-        .action-bar {
-            margin-top: 20px;
-            padding-top: 18px;
-            border-top: 1px solid var(--glass-border);
+        .action-footer {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .live-score-box {
+        .score-summary-box {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
-        .score-chip {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            padding: 10px 18px;
+        .total-pill {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--surface-card);
+            border: 1.5px solid var(--border-highlight);
+            padding: 9px 16px;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
-        .score-chip .label {
-            font-size: 0.82rem;
+        .total-pill .lbl {
+            font-size: 0.76rem;
+            font-weight: 700;
             color: var(--text-muted);
-            font-weight: 600;
+            text-transform: uppercase;
         }
 
-        .score-chip .val {
+        .total-pill .sub-formula {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.45rem;
+        }
+
+        .total-pill .score-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: #22D3EE;
-        }
-
-        .scale-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(15, 23, 42, 0.7);
-            padding: 8px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            font-size: 0.82rem;
-            color: #CBD5E1;
-            cursor: pointer;
-        }
-
-        .scale-toggle input {
-            accent-color: var(--vivid-violet);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
+            color: var(--accent-cyan);
         }
 
         .btn-group {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .btn {
             cursor: pointer;
             border: none;
             border-radius: 10px;
-            padding: 11px 20px;
+            padding: 11px 18px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-family: inherit;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             transition: all 0.2s ease;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--vivid-violet));
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
             color: #FFFFFF;
-            box-shadow: 0 6px 20px -3px rgba(6, 182, 212, 0.45);
+            box-shadow: 0 6px 18px -3px rgba(6, 182, 212, 0.45);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -3px rgba(139, 92, 246, 0.6);
+            box-shadow: 0 10px 24px -3px rgba(139, 92, 246, 0.55);
         }
 
-        .btn-secondary {
-            background: rgba(51, 65, 85, 0.75);
-            color: #E2E8F0;
-            border: 1px solid rgba(148, 163, 184, 0.25);
+        .btn-outline {
+            background: var(--surface-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
         }
 
-        .btn-secondary:hover {
-            background: rgba(71, 85, 105, 0.9);
-            border-color: var(--neon-cyan);
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            background: var(--surface-card-hover);
         }
 
-        /* Summary Counter KPI Cards */
-        .kpi-grid {
+        /* ==========================================================================
+           6. KPI THỐNG KÊ TỔNG QUAN 4 Ô MA TRẬN
+           ========================================================================== */
+        .kpi-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
-        .kpi-card {
-            padding: 16px 18px;
+        .kpi-box {
+            padding: 15px 18px;
             border-radius: 14px;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid var(--glass-border);
+            background: var(--surface-glass);
+            border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: transform 0.2s ease;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
         }
 
-        .kpi-card.safe { border-left: 4px solid var(--safe-green); }
-        .kpi-card.match { border-left: 4px solid var(--match-amber); }
-        .kpi-card.risk { border-left: 4px solid var(--risk-orange); }
-        .kpi-card.dream { border-left: 4px solid var(--dream-red); }
+        .kpi-box.safe { border-left: 5px solid var(--safe-color); }
+        .kpi-box.match { border-left: 5px solid var(--match-color); }
+        .kpi-box.risk { border-left: 5px solid var(--risk-color); }
+        .kpi-box.dream { border-left: 5px solid var(--dream-color); }
 
-        .kpi-info h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
+        .kpi-text h4 {
+            font-size: 0.84rem;
+            font-weight: 800;
             margin-bottom: 2px;
         }
 
-        .kpi-info p {
-            font-size: 0.75rem;
+        .kpi-text p {
+            font-size: 0.74rem;
             color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .kpi-count {
+        .kpi-num {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.75rem;
+            font-size: 1.7rem;
             font-weight: 800;
         }
 
-        .kpi-card.safe .kpi-count, .kpi-card.safe h4 { color: var(--safe-green); }
-        .kpi-card.match .kpi-count, .kpi-card.match h4 { color: var(--match-amber); }
-        .kpi-card.risk .kpi-count, .kpi-card.risk h4 { color: var(--risk-orange); }
-        .kpi-card.dream .kpi-count, .kpi-card.dream h4 { color: var(--dream-red); }
+        .kpi-box.safe h4, .kpi-box.safe .kpi-num { color: var(--safe-color); }
+        .kpi-box.match h4, .kpi-box.match .kpi-num { color: var(--match-color); }
+        .kpi-box.risk h4, .kpi-box.risk .kpi-num { color: var(--risk-color); }
+        .kpi-box.dream h4, .kpi-box.dream .kpi-num { color: var(--dream-color); }
 
-        /* 2D Scatter Plot Visualization + Strategy Section */
-        .top-dashboard-row {
+        /* ==========================================================================
+           7. BỘ CHỌN NHANH 4 NGUYỆN VỌNG TỐI ƯU & ĐỒ THỊ TỌA ĐỘ 2D
+           ========================================================================== */
+        .analytics-row {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
-            gap: 20px;
-            margin-bottom: 24px;
+            gap: 18px;
+            margin-bottom: 22px;
         }
 
-        .canvas-card, .strategy-card {
+        .chart-panel, .nv-builder-panel {
             padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .scatter-wrapper {
+        .canvas-container {
             position: relative;
             width: 100%;
-            height: 280px;
-            background: rgba(9, 13, 22, 0.85);
+            height: 270px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
             overflow: hidden;
             margin-top: 8px;
         }
 
-        canvas#matrixCanvas {
+        canvas#scatter2D {
             width: 100%;
             height: 100%;
             display: block;
         }
 
-        /* Trap Alert Box */
-        .trap-alert {
+        .trap-warning-banner {
             display: none;
-            margin-bottom: 12px;
-            padding: 12px 14px;
+            padding: 11px 14px;
             border-radius: 10px;
-            background: rgba(239, 68, 68, 0.16);
-            border: 1px solid var(--dream-red);
-            color: #FCA5A5;
-            font-size: 0.82rem;
+            background: var(--dream-bg);
+            border: 1px solid var(--dream-color);
+            color: var(--dream-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
             line-height: 1.45;
-            animation: pulseAlert 2s infinite;
         }
 
-        @keyframes pulseAlert {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.35); }
-            50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-        }
-
-        .selected-list {
+        .nv-slots-wrapper {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin: 10px 0;
-            max-height: 210px;
-            overflow-y: auto;
         }
 
-        .nv-slot {
+        .nv-slot-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 12px;
+            padding: 9px 12px;
             border-radius: 10px;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px dashed rgba(148, 163, 184, 0.3);
-            font-size: 0.83rem;
+            background: var(--surface-card);
+            border: 1px dashed var(--border-color);
+            font-size: 0.82rem;
+            transition: all 0.2s ease;
         }
 
-        .nv-slot.filled {
+        .nv-slot-item.active {
             border-style: solid;
-            border-color: rgba(6, 182, 212, 0.45);
+            border-color: var(--border-highlight);
         }
 
-        .nv-badge {
+        .nv-order-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
+            font-weight: 800;
             padding: 3px 8px;
             border-radius: 6px;
-            background: rgba(139, 92, 246, 0.25);
-            color: #C4B5FD;
+            background: rgba(139, 92, 246, 0.18);
+            color: var(--accent-violet);
             margin-right: 10px;
             white-space: nowrap;
         }
 
-        .nv-remove {
+        .btn-remove-nv {
             background: transparent;
             border: none;
-            color: #F87171;
+            color: var(--dream-color);
+            font-weight: 800;
             cursor: pointer;
-            font-weight: 700;
             padding: 2px 6px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
-        /* 4 Matrix Columns Dashboard */
-        .matrix-board {
+        /* ==========================================================================
+           8. BẢNG DASHBOARD 4 CỘT MA TRẬN 2D
+           ========================================================================== */
+        .matrix-grid-4col {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
         }
 
-        .matrix-col {
+        .matrix-column {
             display: flex;
             flex-direction: column;
             border-radius: 16px;
-            background: rgba(15, 23, 42, 0.65);
-            border: 1px solid var(--glass-border);
+            background: var(--surface-glass);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-panel);
+            height: 660px;
             overflow: hidden;
-            height: 640px;
+            transition: all 0.3s ease;
         }
 
-        .col-header {
+        .col-head {
             padding: 14px 16px;
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .col-safe .col-header { background: var(--safe-bg); border-top: 3px solid var(--safe-green); }
-        .col-match .col-header { background: var(--match-bg); border-top: 3px solid var(--match-amber); }
-        .col-risk .col-header { background: var(--risk-bg); border-top: 3px solid var(--risk-orange); }
-        .col-dream .col-header { background: var(--dream-bg); border-top: 3px solid var(--dream-red); }
+        .col-safe .col-head { background: var(--safe-bg); border-top: 4px solid var(--safe-color); }
+        .col-match .col-head { background: var(--match-bg); border-top: 4px solid var(--match-color); }
+        .col-risk .col-head { background: var(--risk-bg); border-top: 4px solid var(--risk-color); }
+        .col-dream .col-head { background: var(--dream-bg); border-top: 4px solid var(--dream-color); }
 
-        .col-title-row {
+        .col-head-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-weight: 800;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
         }
 
-        .col-safe .col-title-row { color: var(--safe-green); }
-        .col-match .col-title-row { color: var(--match-amber); }
-        .col-risk .col-title-row { color: var(--risk-orange); }
-        .col-dream .col-title-row { color: var(--dream-red); }
+        .col-safe .col-head-top { color: var(--safe-color); }
+        .col-match .col-head-top { color: var(--match-color); }
+        .col-risk .col-head-top { color: var(--risk-color); }
+        .col-dream .col-head-top { color: var(--dream-color); }
 
-        .col-sub {
-            font-size: 0.75rem;
-            color: #CBD5E1;
+        .col-head-desc {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
         }
 
-        .col-body {
+        .col-cards-list {
             padding: 12px;
             overflow-y: auto;
             flex: 1;
@@ -504,57 +616,56 @@
             gap: 10px;
         }
 
-        /* Custom Scrollbar */
-        .col-body::-webkit-scrollbar, .selected-list::-webkit-scrollbar {
+        .col-cards-list::-webkit-scrollbar {
             width: 6px;
         }
-        .col-body::-webkit-scrollbar-thumb, .selected-list::-webkit-scrollbar-thumb {
-            background: rgba(148, 163, 184, 0.3);
+        .col-cards-list::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.35);
             border-radius: 999px;
         }
 
-        /* Major Item Card */
-        .major-card {
-            background: rgba(30, 41, 59, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.18);
+        /* Thẻ Ngành Học */
+        .major-item-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 12px;
-            transition: all 0.2s ease;
-            position: relative;
             cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-card);
         }
 
-        .major-card:hover {
+        .major-item-card:hover {
             transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.35);
-            box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.5);
+            background: var(--surface-card-hover);
+            border-color: var(--border-highlight);
         }
 
-        .major-card.selected {
-            border: 1.5px solid var(--neon-cyan);
-            background: rgba(6, 182, 212, 0.12);
+        .major-item-card.is-picked {
+            border: 2px solid var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.10);
         }
 
-        .card-top {
+        .card-row-1 {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 6px;
         }
 
-        .school-tag {
+        .code-badge {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 2px 7px;
+            padding: 2px 8px;
             border-radius: 5px;
-            background: rgba(15, 23, 42, 0.9);
-            color: #38BDF8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--accent-cyan);
+            border: 1px solid var(--border-highlight);
         }
 
-        .delta-pill {
+        .delta-tag {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
             font-weight: 800;
@@ -562,68 +673,71 @@
             border-radius: 6px;
         }
 
-        .delta-safe { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); }
-        .delta-match { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
-        .delta-risk { background: rgba(249, 115, 22, 0.2); color: #FB923C; border: 1px solid rgba(249, 115, 22, 0.4); }
-        .delta-dream { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+        .delta-safe { background: var(--safe-bg); color: var(--safe-color); border: 1px solid var(--safe-border); }
+        .delta-match { background: var(--match-bg); color: var(--match-color); border: 1px solid var(--match-border); }
+        .delta-risk { background: var(--risk-bg); color: var(--risk-color); border: 1px solid var(--risk-border); }
+        .delta-dream { background: var(--dream-bg); color: var(--dream-color); border: 1px solid var(--dream-border); }
 
-        .major-title {
+        .major-name-title {
             font-size: 0.88rem;
             font-weight: 700;
-            color: #F8FAFC;
+            color: var(--text-primary);
             margin-bottom: 2px;
         }
 
-        .school-name {
+        .school-name-sub {
             font-size: 0.76rem;
             color: var(--text-muted);
             margin-bottom: 8px;
         }
 
-        .card-metrics {
+        .card-stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6px;
             padding-top: 8px;
-            border-top: 1px dashed rgba(148, 163, 184, 0.2);
+            border-top: 1px dashed var(--border-color);
             font-size: 0.74rem;
-            color: #CBD5E1;
+            color: var(--text-secondary);
         }
 
-        .card-metrics span strong {
+        .card-stats-grid strong {
             font-family: 'JetBrains Mono', monospace;
-            color: #FFFFFF;
+            color: var(--text-primary);
         }
 
-        .history-row {
+        .card-foot-history {
             margin-top: 6px;
-            font-size: 0.7rem;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-muted);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.69rem;
+            color: var(--text-muted);
         }
 
-        .select-indicator {
-            font-size: 0.72rem;
+        .pick-status {
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
-            color: var(--neon-cyan);
+            font-size: 0.72rem;
+            color: var(--accent-cyan);
         }
 
-        .empty-state {
+        .empty-col-msg {
             text-align: center;
-            padding: 36px 12px;
+            padding: 36px 14px;
             color: var(--text-muted);
             font-size: 0.82rem;
         }
 
-        /* Modal Print / Export Summary */
-        .modal-overlay {
+        /* ==========================================================================
+           9. MODAL XUẤT BẢNG TÓM TẮT CHỤP MÀN HÌNH / IN ẤN
+           ========================================================================== */
+        .modal-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(9, 13, 22, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(9, 13, 22, 0.82);
+            backdrop-filter: blur(6px);
             display: none;
             align-items: center;
             justify-content: center;
@@ -631,834 +745,847 @@
             padding: 16px;
         }
 
-        .modal-box {
-            max-width: 760px;
+        .modal-card {
+            max-width: 780px;
             width: 100%;
-            padding: 28px;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-highlight);
             border-radius: 18px;
-            background: #0F172A;
-            border: 1px solid rgba(6, 182, 212, 0.45);
-            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.7);
+            padding: 24px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65);
         }
 
-        .report-table {
+        .summary-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 0.85rem;
+            margin: 14px 0;
+            font-size: 0.84rem;
         }
 
-        .report-table th, .report-table td {
-            border: 1px solid rgba(148, 163, 184, 0.25);
+        .summary-table th, .summary-table td {
+            border: 1px solid var(--border-color);
             padding: 10px 12px;
             text-align: left;
         }
 
-        .report-table th {
-            background: rgba(30, 41, 59, 0.9);
-            color: #38BDF8;
+        .summary-table th {
+            background: var(--surface-card);
+            color: var(--accent-cyan);
             font-weight: 700;
         }
 
-        @media (max-width: 1150px) {
-            .matrix-board {
+        /* ==========================================================================
+           10. RESPONSIVE ĐA THIẾT BỊ (DESKTOP >= 1024px, TABLET, MOBILE < 768px)
+           ========================================================================== */
+        @media (max-width: 1180px) {
+            .form-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .analytics-row {
+                grid-template-columns: 1fr;
+            }
+            .matrix-grid-4col {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .top-dashboard-row {
-                grid-template-columns: 1fr;
-            }
         }
 
-        @media (max-width: 680px) {
-            .kpi-grid, .matrix-board {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media print {
+        @media (max-width: 767px) {
             body {
-                background: #FFFFFF !important;
-                color: #000000 !important;
-                padding: 0;
+                padding: 64px 12px 48px;
             }
-            .btn-group, .input-section, .matrix-board, .kpi-grid {
-                display: none !important;
+            .theme-switcher-fixed {
+                top: 12px;
+                right: 12px;
+                padding: 8px 14px;
+                font-size: 0.78rem;
             }
-            .modal-overlay {
-                position: static;
-                display: block !important;
-                background: none;
+            .form-grid {
+                grid-template-columns: 1fr;
             }
-            .modal-box {
-                border: 1px solid #000;
-                box-shadow: none;
-                background: #FFF;
-                color: #000;
+            .form-control, .btn {
+                min-height: 46px;
+                font-size: 0.95rem;
+            }
+            .kpi-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .matrix-grid-4col {
+                grid-template-columns: 1fr;
+            }
+            .matrix-column {
+                height: auto;
+                max-height: 520px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- HEADER -->
-    <header class="glass-panel">
-        <div class="badge-header">⚡ CÔNG CỤ CAN THIỆP HƯỚNG NGHIỆP KHKT • TRỤ CỘT 1 (0 ĐỒNG - 10 GIÂY)</div>
-        <h1>MA TRẬN NGUYỆN VỌNG 2D & QUẢN TRỊ RỦI RO TUYỂN SINH</h1>
-        <p class="subtitle">
-            Tự động hóa phân tầng danh sách Nguyện vọng Đại học dựa trên dải điểm chuẩn 3 năm (2023–2025), tính chỉ số chênh lệch năng lực <strong>Δ (Delta)</strong> và cảnh báo sớm bẫy xếp ngược thứ tự ưu tiên.
-        </p>
-        <div class="formula-pill">
-            Công thức lõi: <span>C_kỳ_vọng = 0.5×C₂₀₂₅ + 0.3×C₂₀₂₄ + 0.2×C₂₀₂₃</span>  |  <span>Δ = Điểm_Xét_Tuyển − C_kỳ_vọng</span>
-        </div>
-    </header>
+    <!-- NÚT CHUYỂN ĐỔI GIAO DIỆN SÁNG / TỐI CỐ ĐỊNH GÓC PHẢI -->
+    <button class="theme-switcher-fixed" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Chuyển đổi giao diện Sáng/Tối">
+        <span id="themeIcon">☀️</span>
+        <span id="themeLabel">Chế độ Sáng</span>
+    </button>
 
-    <!-- KHỐI 1: THANH NHẬP LIỆU (INPUT FORM) -->
-    <section class="glass-panel input-section">
-        <div class="section-title">
-            <span>1. Hồ Sơ Năng Lực & Bộ Lọc Tổ Hợp Xét Tuyển</span>
-            <label class="scale-toggle" title="Tự động nhân hệ số 2 cho Môn 1 và quy chuẩn về thang điểm 30 để không bị lệch hệ quy chiếu">
-                <input type="checkbox" id="scale40Toggle" onchange="analyzeAspirations()">
-                <span>Quy đổi từ Thang điểm 40 (Môn 1 nhân hệ số 2 ➔ Chuẩn hóa Thang 30)</span>
-            </label>
-        </div>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="glass-panel">
+            <div class="badge-pill">⚡ CÔNG CỤ QUẢN TRỊ RỦI RO TUYỂN SINH • 0 ĐỒNG • 10 GIÂY</div>
+            <h1>MA TRẬN NGUYỆN VỌNG 2D HƯỚNG NGHIỆP TỰ ĐỘNG</h1>
+            <p class="subtitle">
+                Phân tích khoảng cách năng lực <strong>Δ (Delta)</strong> trên dữ liệu điểm chuẩn 3 năm (2023–2025), tự động phân tầng 4 vùng rủi ro và chống bẫy xếp ngược thứ tự ưu tiên nguyện vọng.
+            </p>
+            <div class="formula-bar">
+                <span><strong>C_kỳ_vọng</strong> = 0.5×C₂₀₂₅ + 0.3×C₂₀₂₄ + 0.2×C₂₀₂₃</span>
+                <span>|</span>
+                <span><strong>Δ</strong> = (Môn 1 + Môn 2 + Môn 3 + Ưu Tiên) − C_kỳ_vọng</span>
+            </div>
+        </header>
 
-        <div class="form-grid">
-            <div class="form-group">
-                <label for="studentName">Họ tên / Mật danh HS</label>
-                <input type="text" id="studentName" class="form-control" value="EG_07 (Khánh Hưng)" placeholder="VD: EG_07">
+        <!-- FORM NHẬP LIỆU -->
+        <section class="glass-panel input-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <span>1. Nhập Điểm Năng Lực & Bộ Lọc Nguyện Vọng</span>
+                </div>
+                <label class="scale-switch" title="Tự động nhân hệ số 2 cho Môn 1 và quy chuẩn về thang 30 để không bị lệch hệ quy chiếu">
+                    <input type="checkbox" id="scale40Check" onchange="runMatrixAnalysis()">
+                    <span>Quy đổi Thang điểm 40 (Môn 1 nhân hệ số 2 ➔ Chuẩn hóa Thang 30)</span>
+                </label>
             </div>
 
-            <div class="form-group">
-                <label for="groupSelect">Khối / Tổ hợp xét tuyển</label>
-                <select id="groupSelect" class="form-control" onchange="updateSubjectLabels(); analyzeAspirations();">
-                    <option value="ALL">Tất cả các khối (A00, A01, B00, C00, D01, D07)</option>
-                    <option value="A00" selected>Khối A00 (Toán - Lý - Hóa)</option>
-                    <option value="A01">Khối A01 (Toán - Lý - Anh)</option>
-                    <option value="D01">Khối D01 (Toán - Văn - Anh)</option>
-                    <option value="D07">Khối D07 (Toán - Hóa - Anh)</option>
-                    <option value="B00">Khối B00 (Toán - Hóa - Sinh)</option>
-                    <option value="C00">Khối C00 (Văn - Sử - Địa)</option>
-                </select>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="studentName">Họ tên / Mật danh</label>
+                    <input type="text" id="studentName" class="form-control" value="EG_07 (Khánh Hưng)" placeholder="VD: EG_07">
+                </div>
+
+                <div class="form-group">
+                    <label for="examGroup">Khối / Tổ hợp thi</label>
+                    <select id="examGroup" class="form-control" onchange="syncSubjectNames(); runMatrixAnalysis();">
+                        <option value="ALL">Tất cả khối (A00, A01, B00, C00, D01, D07)</option>
+                        <option value="A00" selected>Khối A00 (Toán - Lý - Hóa)</option>
+                        <option value="A01">Khối A01 (Toán - Lý - Anh)</option>
+                        <option value="D01">Khối D01 (Toán - Văn - Anh)</option>
+                        <option value="D07">Khối D07 (Toán - Hóa - Anh)</option>
+                        <option value="B00">Khối B00 (Toán - Hóa - Sinh)</option>
+                        <option value="C00">Khối C00 (Văn - Sử - Địa)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><span id="lblSub1">Môn 1 (Toán)</span></label>
+                    <input type="number" id="score1" class="form-control" value="8.6" min="0" max="10" step="0.1" oninput="runMatrixAnalysis()">
+                </div>
+
+                <div class="form-group">
+                    <label><span id="lblSub2">Môn 2 (Vật lý)</span></label>
+                    <input type="number" id="score2" class="form-control" value="8.5" min="0" max="10" step="0.1" oninput="runMatrixAnalysis()">
+                </div>
+
+                <div class="form-group">
+                    <label><span id="lblSub3">Môn 3 (Hóa học)</span></label>
+                    <input type="number" id="score3" class="form-control" value="8.2" min="0" max="10" step="0.1" oninput="runMatrixAnalysis()">
+                </div>
+
+                <div class="form-group">
+                    <label for="scorePri">Điểm Ưu tiên</label>
+                    <input type="number" id="scorePri" class="form-control" value="0.25" min="0" max="3" step="0.05" oninput="runMatrixAnalysis()">
+                </div>
+
+                <div class="form-group">
+                    <label for="tuitionFilter">Trần Học phí / năm</label>
+                    <select id="tuitionFilter" class="form-control" onchange="runMatrixAnalysis()">
+                        <option value="999">Tất cả mức học phí</option>
+                        <option value="20">≤ 20 Triệu / năm</option>
+                        <option value="30">≤ 30 Triệu / năm</option>
+                        <option value="40">≤ 40 Triệu / năm</option>
+                        <option value="0">Miễn 100% học phí (0đ)</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label><span id="lblSub1">Điểm Môn 1 (Toán)</span> <small>[0-10]</small></label>
-                <input type="number" id="scoreSub1" class="form-control" value="8.8" min="0" max="10" step="0.1" oninput="analyzeAspirations()">
-            </div>
-
-            <div class="form-group">
-                <label><span id="lblSub2">Điểm Môn 2 (Vật lý)</span> <small>[0-10]</small></label>
-                <input type="number" id="scoreSub2" class="form-control" value="8.5" min="0" max="10" step="0.1" oninput="analyzeAspirations()">
-            </div>
-
-            <div class="form-group">
-                <label><span id="lblSub3">Điểm Môn 3 (Hóa học)</span> <small>[0-10]</small></label>
-                <input type="number" id="scoreSub3" class="form-control" value="8.2" min="0" max="10" step="0.1" oninput="analyzeAspirations()">
-            </div>
-
-            <div class="form-group">
-                <label for="scorePriority">Điểm Ưu tiên (KV/ĐT)</label>
-                <input type="number" id="scorePriority" class="form-control" value="0.25" min="0" max="3" step="0.05" oninput="analyzeAspirations()">
-            </div>
-
-            <div class="form-group">
-                <label for="maxTuition">Trần Học phí tối đa</label>
-                <select id="maxTuition" class="form-control" onchange="analyzeAspirations()">
-                    <option value="999">Không giới hạn học phí</option>
-                    <option value="25">≤ 25 Triệu VNĐ / năm</option>
-                    <option value="35">≤ 35 Triệu VNĐ / năm</option>
-                    <option value="50">≤ 50 Triệu VNĐ / năm</option>
-                    <option value="0">Trường Miễn 100% học phí (0đ)</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="action-bar">
-            <div class="live-score-box">
-                <div class="score-chip">
-                    <div>
-                        <div class="label">TỔNG ĐIỂM XÉT TUYỂN (THANG 30)</div>
-                        <div style="font-size: 0.72rem; color: #94A3B8;" id="scoreFormulaDesc">8.80 + 8.50 + 8.20 + 0.25 (Ưu tiên)</div>
+            <div class="action-footer">
+                <div class="score-summary-box">
+                    <div class="total-pill">
+                        <div>
+                            <div class="lbl">Tổng Điểm Xét Tuyển (Thang 30)</div>
+                            <div class="sub-formula" id="formulaBreakdown">8.60 + 8.50 + 8.20 + 0.25 (Ưu tiên)</div>
+                        </div>
+                        <div class="score-num" id="totalScoreVal">25.55</div>
                     </div>
-                    <div class="val" id="totalScoreDisplay">25.75</div>
-                </div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">
-                    Thời gian xử lý: <strong style="color: #34D399; font-family: 'JetBrains Mono', monospace;" id="execTime">0.4 ms</strong>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-secondary" onclick="autoRecommend4NV()">
-                    🎯 Tự Động Đề Xuất 4 NV Tối Ưu
-                </button>
-                <button class="btn btn-primary" onclick="analyzeAspirations(true)">
-                    🚀 Phân Tích Nguyện Vọng Tự Động
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- KHỐI KPI ĐẾM SỐ LƯỢNG NGÀNH TRONG 4 Ô -->
-    <section class="kpi-grid">
-        <div class="kpi-card safe">
-            <div class="kpi-info">
-                <h4>🟢 Ô 1: VÙNG AN TOÀN</h4>
-                <p>Safety Net (Δ ≥ +1.5)</p>
-            </div>
-            <div class="kpi-count" id="countSafe">0</div>
-        </div>
-        <div class="kpi-card match">
-            <div class="kpi-info">
-                <h4>🟡 Ô 2: VÙNG VỪA SỨC</h4>
-                <p>Gold Match (0 ≤ Δ < +1.5)</p>
-            </div>
-            <div class="kpi-count" id="countMatch">0</div>
-        </div>
-        <div class="kpi-card risk">
-            <div class="kpi-info">
-                <h4>🟠 Ô 3: VÙNG CẢNH BÁO</h4>
-                <p>Risk Zone (-1.5 ≤ Δ < 0)</p>
-            </div>
-            <div class="kpi-count" id="countRisk">0</div>
-        </div>
-        <div class="kpi-card dream">
-            <div class="kpi-info">
-                <h4>🔴 Ô 4: VÙNG RỦI RO CAO</h4>
-                <p>Dream Target (Δ < -1.5)</p>
-            </div>
-            <div class="kpi-count" id="countDream">0</div>
-        </div>
-    </section>
-
-    <!-- KHỐI TRỰC QUAN HÓA ĐỒ THỊ 2D & BỘ LỌC 4 NGUYỆN VỌNG CHIẾN LƯỢC -->
-    <section class="top-dashboard-row">
-        <!-- Biểu đồ Ma trận tọa độ 2D -->
-        <div class="glass-panel canvas-card">
-            <div class="section-title" style="margin-bottom: 4px;">
-                <span>2. Biểu Đồ Ma Trận Định Vị Tọa Độ 2D (Học Phí × Độ Lệch Δ)</span>
-                <span style="font-size: 0.75rem; color: var(--text-muted);">Trục Hoành: Học phí (Tr/năm) | Trục Tung: Chỉ số Δ</span>
-            </div>
-            <div class="scatter-wrapper">
-                <canvas id="matrixCanvas"></canvas>
-            </div>
-        </div>
-
-        <!-- Khung 4 Nguyện Vọng Khuyên Dùng & Kiểm tra Bẫy Xếp Ngược -->
-        <div class="glass-panel strategy-card">
-            <div>
-                <div class="section-title" style="margin-bottom: 6px;">
-                    <span>3. Danh Sách 4 Nguyện Vọng Chiến Lược Đã Chọn</span>
-                    <span style="font-size: 0.75rem; color: #38BDF8;" id="selectedCounter">0/4 NV</span>
-                </div>
-                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px;">
-                    Chiến thuật chuẩn: <strong>NV1 (Mơ ước/Cảnh báo nhẹ)</strong> ➔ <strong>NV2, NV3 (Vừa sức)</strong> ➔ <strong>NV4 (Chốt chặn An toàn)</strong>. Click vào các thẻ ngành bên dưới để chọn hoặc bấm nút <em>Tự Động Đề Xuất</em>.
-                </p>
-
-                <!-- Cảnh báo Bẫy Xếp Ngược Nguyện Vọng -->
-                <div class="trap-alert" id="reverseTrapAlert">
-                    ⚠️ <strong>CẢNH BÁO BẪY XẾP NGƯỢC THỨ TỰ ƯU TIÊN!</strong><br>
-                    Bạn đang xếp ngành có Điểm chuẩn kỳ vọng thấp (An toàn) lên trên ngành điểm cao! Hệ thống xét tuyển sẽ dừng ngay khi đỗ NV trên, khiến bạn mất cơ hội vào trường tốt hơn ở NV dưới. Hãy bấm <strong>"Sắp Xếp Lại Chuẩn"</strong>!
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">
+                        Tổng số ngành khớp lọc: <strong id="totalMatchedCount" style="color: var(--accent-cyan);">0</strong> ngành
+                    </div>
                 </div>
 
-                <div class="selected-list" id="selectedNVContainer">
-                    <!-- Render động bằng JS -->
+                <div class="btn-group">
+                    <button class="btn btn-outline" onclick="autoPick4OptimalNV()">
+                        🎯 Tự Động Chọn 4 NV Tối Ưu
+                    </button>
+                    <button class="btn btn-primary" onclick="runMatrixAnalysis(true)">
+                        🚀 Phân Tích Nguyện Vọng
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- THỐNG KÊ 4 Ô KPI -->
+        <section class="kpi-row">
+            <div class="kpi-box safe">
+                <div class="kpi-text">
+                    <h4>🟢 Ô 1: VÙNG AN TOÀN</h4>
+                    <p>Safety Net (Δ ≥ +1.5)</p>
+                </div>
+                <div class="kpi-num" id="kpiSafe">0</div>
+            </div>
+            <div class="kpi-box match">
+                <div class="kpi-text">
+                    <h4>🟡 Ô 2: VÙNG VỪA SỨC</h4>
+                    <p>Gold Match (0 ≤ Δ &lt; +1.5)</p>
+                </div>
+                <div class="kpi-num" id="kpiMatch">0</div>
+            </div>
+            <div class="kpi-box risk">
+                <div class="kpi-text">
+                    <h4>🟠 Ô 3: VÙNG CẢNH BÁO</h4>
+                    <p>Risk Zone (-1.5 ≤ Δ &lt; 0)</p>
+                </div>
+                <div class="kpi-num" id="kpiRisk">0</div>
+            </div>
+            <div class="kpi-box dream">
+                <div class="kpi-text">
+                    <h4>🔴 Ô 4: VÙNG RỦI RO CAO</h4>
+                    <p>Dream Target (Δ &lt; -1.5)</p>
+                </div>
+                <div class="kpi-num" id="kpiDream">0</div>
+            </div>
+        </section>
+
+        <!-- ĐỒ THỊ TỌA ĐỘ 2D & BỘ CHỌN 4 NGUYỆN VỌNG TỐI ƯU -->
+        <section class="analytics-row">
+            <!-- Đồ thị 2D -->
+            <div class="glass-panel chart-panel">
+                <div class="section-header" style="margin-bottom: 4px;">
+                    <span class="section-title">2. Bản Đồ Tọa Độ Ma Trận 2D (Học Phí × Độ Lệch Δ)</span>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Trục X: Học phí (Tr/năm) | Trục Y: Độ lệch Δ</span>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="scatter2D"></canvas>
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px;">
-                <button class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.8rem;" onclick="sortSelectedOptimal()">
-                    ⇅ Sắp Xếp Lại Chuẩn (Điểm giảm dần)
-                </button>
-                <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;" onclick="openExportModal()">
-                    🖨️ Xuất Phiếu Khuyến Nghị / In Ấn
-                </button>
-            </div>
-        </div>
-    </section>
+            <!-- Danh sách 4 Nguyện Vọng Chiến Lược -->
+            <div class="glass-panel nv-builder-panel">
+                <div>
+                    <div class="section-header" style="margin-bottom: 4px;">
+                        <span class="section-title">3. Danh Sách 4 Nguyện Vọng Chiến Lược Khuyên Dùng</span>
+                        <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan);" id="pickedCounter">0/4 NV</span>
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">
+                        Cấu trúc chuẩn: <strong>NV1 (Cảnh báo nhẹ/Mơ ước)</strong> ➔ <strong>NV2, NV3 (Vừa sức)</strong> ➔ <strong>NV4 (An toàn)</strong>. Bấm vào các thẻ ngành bên dưới để chọn hoặc bỏ chọn.
+                    </p>
 
-    <!-- KHỐI 3: BẢNG ĐIỀU KHIỂN DASHBOARD 4 Ô MA TRẬN 2D -->
-    <section class="matrix-board">
-        <!-- Cột 1: Vùng An Toàn -->
-        <div class="matrix-col col-safe">
-            <div class="col-header">
-                <div class="col-title-row">
-                    <span>🟢 Ô 1: VÙNG AN TOÀN</span>
-                    <span id="badgeSafe">0 ngành</span>
+                    <div class="trap-warning-banner" id="reverseOrderWarning">
+                        ⚠️ <strong>PHÁT HIỆN BẪY XẾP NGƯỢC NGUYỆN VỌNG!</strong><br>
+                        Bạn đang đặt trường có Điểm chuẩn kỳ vọng thấp (An toàn) lên trên trường điểm cao! Khi đỗ NV trên, hệ thống Bộ GD&ĐT sẽ dừng xét các NV dưới. Hãy bấm <strong>"Chuẩn Hóa Thứ Tự"</strong> ngay!
+                    </div>
+
+                    <div class="nv-slots-wrapper" id="nvSlotsBox"></div>
                 </div>
-                <div class="col-sub">Δ ≥ +1.5 điểm • Tỷ lệ đỗ > 90% (Chốt chặn NV4)</div>
-            </div>
-            <div class="col-body" id="listSafe"></div>
-        </div>
 
-        <!-- Cột 2: Vùng Vừa Sức -->
-        <div class="matrix-col col-match">
-            <div class="col-header">
-                <div class="col-title-row">
-                    <span>🟡 Ô 2: VÙNG VỪA SỨC</span>
-                    <span id="badgeMatch">0 ngành</span>
+                <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+                    <button class="btn btn-outline" style="padding: 9px 14px; font-size: 0.8rem;" onclick="sortPickedByExpectedScore()">
+                        ⇅ Chuẩn Hóa Thứ Tự (Điểm giảm dần)
+                    </button>
+                    <button class="btn btn-primary" style="padding: 9px 16px; font-size: 0.8rem;" onclick="openSummaryModal()">
+                        📸 Xuất Bảng Tóm Tắt Chụp Màn Hình
+                    </button>
                 </div>
-                <div class="col-sub">0 ≤ Δ < +1.5 điểm • Mục tiêu tối ưu (Ưu tiên NV2, NV3)</div>
             </div>
-            <div class="col-body" id="listMatch"></div>
-        </div>
+        </section>
 
-        <!-- Cột 3: Vùng Cảnh Báo -->
-        <div class="matrix-col col-risk">
-            <div class="col-header">
-                <div class="col-title-row">
-                    <span>🟠 Ô 3: VÙNG CẢNH BÁO</span>
-                    <span id="badgeRisk">0 ngành</span>
+        <!-- DASHBOARD 4 CỘT MA TRẬN 2D -->
+        <section class="matrix-grid-4col">
+            <!-- CỘT 1: AN TOÀN -->
+            <div class="matrix-column col-safe">
+                <div class="col-head">
+                    <div class="col-head-top">
+                        <span>🟢 Ô 1: VÙNG AN TOÀN</span>
+                        <span id="colCountSafe">0 ngành</span>
+                    </div>
+                    <div class="col-head-desc">Δ ≥ +1.5 • Tỷ lệ đỗ &gt; 90% (Chốt chặn NV4)</div>
                 </div>
-                <div class="col-sub">-1.5 ≤ Δ < 0 điểm • Cần bứt phá thêm (Đặt ở NV1)</div>
+                <div class="col-cards-list" id="colListSafe"></div>
             </div>
-            <div class="col-body" id="listRisk"></div>
-        </div>
 
-        <!-- Cột 4: Vùng Mơ Ước / Rủi Ro Cao -->
-        <div class="matrix-col col-dream">
-            <div class="col-header">
-                <div class="col-title-row">
-                    <span>🔴 Ô 4: MƠ ƯỚC / RỦI RO CAO</span>
-                    <span id="badgeDream">0 ngành</span>
+            <!-- CỘT 2: VỪA SỨC -->
+            <div class="matrix-column col-match">
+                <div class="col-head">
+                    <div class="col-head-top">
+                        <span>🟡 Ô 2: VÙNG VỪA SỨC</span>
+                        <span id="colCountMatch">0 ngành</span>
+                    </div>
+                    <div class="col-head-desc">0 ≤ Δ &lt; +1.5 • Mục tiêu chuẩn (Đặt NV2, NV3)</div>
                 </div>
-                <div class="col-sub">Δ < -1.5 điểm • Nguy cơ trượt rất cao (Cân nhắc kỹ)</div>
+                <div class="col-cards-list" id="colListMatch"></div>
             </div>
-            <div class="col-body" id="listDream"></div>
-        </div>
-    </section>
-</div>
 
-<!-- MODAL XUẤT BÁO CÁO KHUYẾN NGHỊ -->
-<div class="modal-overlay" id="exportModal">
-    <div class="modal-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <h3 style="color: #38BDF8; font-size: 1.15rem;">PHIẾU KHUYẾN NGHỊ CẤU TRÚC NGUYỆN VỌNG AN TOÀN</h3>
-            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;" onclick="closeExportModal()">Đóng [X]</button>
-        </div>
-        <div id="exportContentArea"></div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px;">
-            <button class="btn btn-primary" onclick="window.print()">🖨️ In Phiếu / Lưu PDF</button>
+            <!-- CỘT 3: CẢNH BÁO -->
+            <div class="matrix-column col-risk">
+                <div class="col-head">
+                    <div class="col-head-top">
+                        <span>🟠 Ô 3: VÙNG CẢNH BÁO</span>
+                        <span id="colCountRisk">0 ngành</span>
+                    </div>
+                    <div class="col-head-desc">-1.5 ≤ Δ &lt; 0 • Thiếu điểm nhẹ (Thử sức NV1)</div>
+                </div>
+                <div class="col-cards-list" id="colListRisk"></div>
+            </div>
+
+            <!-- CỘT 4: RỦI RO CAO / MƠ ƯỚC -->
+            <div class="matrix-column col-dream">
+                <div class="col-head">
+                    <div class="col-head-top">
+                        <span>🔴 Ô 4: RỦI RO CAO / MƠ ƯỚC</span>
+                        <span id="colCountDream">0 ngành</span>
+                    </div>
+                    <div class="col-head-desc">Δ &lt; -1.5 • Tỷ lệ trượt cao (Cân nhắc kỹ)</div>
+                </div>
+                <div class="col-cards-list" id="colListDream"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL XUẤT BẢNG TÓM TẮT GỌN GÀNG ĐỂ CHỤP MÀN HÌNH -->
+    <div class="modal-backdrop" id="summaryModal">
+        <div class="modal-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="color: var(--accent-cyan); font-size: 1.1rem;">📋 BẢNG TỔNG HỢP 4 NGUYỆN VỌNG CHIẾN LƯỢC TỐI ƯU</h3>
+                <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.78rem;" onclick="closeSummaryModal()">Đóng [✕]</button>
+            </div>
+            <div id="modalReportContent"></div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px;">
+                <button class="btn btn-primary" onclick="window.print()">🖨️ In / Lưu File PDF</button>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    /**
-     * CƠ SỞ DỮ LIỆU TÍCH HỢP CHÍNH XÁC (30 NGÀNH/TRƯỜNG ĐẠI HỌC TẠI VIỆT NAM)
-     * Bao phủ đủ Top Đầu, Top Trung và Top An toàn cho các khối A00, A01, B00, C00, D01, D07
-     */
-    const UNIVERSITY_DATA = [
-        // --- TOP ĐẦU (Bách Khoa, Ngoại Thương, Y Hà Nội, KTQD, ĐHQGHN, Học viện Kỹ thuật Quân sự, Sư phạm) ---
-        { id: 1, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Khoa học Máy tính (IT1)", group_code: "A00", score_2023: 28.29, score_2024: 28.48, score_2025: 28.60, tuition_fee_per_year: 33, region: "Hà Nội" },
-        { id: 2, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Kỹ thuật Điều khiển & Tự động hóa (EE2)", group_code: "A00", score_2023: 27.57, score_2024: 27.75, score_2025: 27.90, tuition_fee_per_year: 30, region: "Hà Nội" },
-        { id: 3, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Kỹ thuật Cơ điện tử (ME1)", group_code: "A01", score_2023: 26.80, score_2024: 27.10, score_2025: 27.25, tuition_fee_per_year: 30, region: "Hà Nội" },
-        { id: 4, school_code: "QHI", school_name: "ĐH Công nghệ - ĐHQG Hà Nội", major_name: "An toàn thông tin (Cybersecurity)", group_code: "A00", score_2023: 26.70, score_2024: 27.15, score_2025: 27.35, tuition_fee_per_year: 32, region: "Hà Nội" },
-        { id: 5, school_code: "QHI", school_name: "ĐH Công nghệ - ĐHQG Hà Nội", major_name: "Công nghệ thông tin", group_code: "A01", score_2023: 27.20, score_2024: 27.45, score_2025: 27.60, tuition_fee_per_year: 32, region: "Hà Nội" },
-        { id: 6, school_code: "KMA", school_name: "Học viện Kỹ thuật Mật mã", major_name: "An toàn thông tin (Hệ Dân sự)", group_code: "A00", score_2023: 25.60, score_2024: 25.95, score_2025: 26.20, tuition_fee_per_year: 20, region: "Hà Nội" },
-        { id: 7, school_code: "BVH", school_name: "Học viện Công nghệ Bưu chính Viễn thông", major_name: "An toàn thông tin", group_code: "A01", score_2023: 26.15, score_2024: 26.35, score_2025: 26.45, tuition_fee_per_year: 27, region: "Hà Nội" },
-        { id: 8, school_code: "NTB", school_name: "ĐH Ngoại Thương (Trụ sở Hà Nội)", major_name: "Kinh tế đối ngoại", group_code: "A00", score_2023: 28.30, score_2024: 28.40, score_2025: 28.50, tuition_fee_per_year: 25, region: "Hà Nội" },
-        { id: 9, school_code: "NTB", school_name: "ĐH Ngoại Thương (Trụ sở Hà Nội)", major_name: "Kinh doanh quốc tế", group_code: "D01", score_2023: 27.60, score_2024: 27.80, score_2025: 27.95, tuition_fee_per_year: 25, region: "Hà Nội" },
-        { id: 10, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân", major_name: "Marketing số & Truyền thông", group_code: "D01", score_2023: 27.35, score_2024: 27.55, score_2025: 27.70, tuition_fee_per_year: 22, region: "Hà Nội" },
-        { id: 11, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân", major_name: "Phân tích dữ liệu kinh doanh", group_code: "A00", score_2023: 26.90, score_2024: 27.10, score_2025: 27.20, tuition_fee_per_year: 22, region: "Hà Nội" },
-        { id: 12, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân", major_name: "Tài chính - Ngân hàng", group_code: "D07", score_2023: 26.65, score_2024: 26.85, score_2025: 26.95, tuition_fee_per_year: 22, region: "Hà Nội" },
-        { id: 13, school_code: "YHB", school_name: "ĐH Y Hà Nội", major_name: "Y khoa (Bác sĩ Đa khoa)", group_code: "B00", score_2023: 27.73, score_2024: 28.27, score_2025: 28.35, tuition_fee_per_year: 55, region: "Hà Nội" },
-        { id: 14, school_code: "SPH", school_name: "ĐH Sư phạm Hà Nội", major_name: "Sư phạm Lịch sử (Miễn học phí)", group_code: "C00", score_2023: 28.42, score_2024: 28.83, score_2025: 28.90, tuition_fee_per_year: 0, region: "Hà Nội" },
-        { id: 15, school_code: "SPH", school_name: "ĐH Sư phạm Hà Nội", major_name: "Sư phạm Toán học (Miễn học phí)", group_code: "A00", score_2023: 26.40, score_2024: 26.75, score_2025: 26.90, tuition_fee_per_year: 0, region: "Hà Nội" },
+    <script>
+        /* ==========================================================================
+           CƠ SỞ DỮ LIỆU TÍCH HỢP 35 TRƯỜNG & NGÀNH ĐẠI HỌC (TOP ĐẦU, TOP TRUNG, TOP AN TOÀN)
+           Đầy đủ các khối A00, A01, B00, C00, D01, D07
+           ========================================================================== */
+        const UNIVERSITY_DATA = [
+            // --- NHÓM 1: TOP ĐẦU (ĐIỂM CHUẨN 25.5 - 29.0) ---
+            { id: 1, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Khoa học Máy tính & AI (IT1)", group_code: "A00", score_2023: 28.29, score_2024: 28.48, score_2025: 28.65, tuition_fee_per_year: 34 },
+            { id: 2, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Kỹ thuật Điều khiển & Tự động hóa", group_code: "A00", score_2023: 27.57, score_2024: 27.75, score_2025: 27.90, tuition_fee_per_year: 30 },
+            { id: 3, school_code: "BKA", school_name: "ĐH Bách Khoa Hà Nội", major_name: "Kỹ thuật Vi điện tử & Công nghệ Nano", group_code: "A01", score_2023: 26.45, score_2024: 26.85, score_2025: 27.10, tuition_fee_per_year: 30 },
+            { id: 4, school_code: "QHI", school_name: "ĐH Công nghệ - ĐHQG Hà Nội (UET)", major_name: "Công nghệ thông tin", group_code: "A00", score_2023: 27.10, score_2024: 27.45, score_2025: 27.60, tuition_fee_per_year: 32 },
+            { id: 5, school_code: "QHI", school_name: "ĐH Công nghệ - ĐHQG Hà Nội (UET)", major_name: "An toàn thông tin (Cybersecurity)", group_code: "A01", score_2023: 26.60, score_2024: 26.95, score_2025: 27.20, tuition_fee_per_year: 32 },
+            { id: 6, school_code: "NTB", school_name: "ĐH Ngoại Thương", major_name: "Kinh tế đối ngoại", group_code: "A00", score_2023: 28.30, score_2024: 28.40, score_2025: 28.50, tuition_fee_per_year: 25 },
+            { id: 7, school_code: "NTB", school_name: "ĐH Ngoại Thương", major_name: "Logistics & Quản lý chuỗi cung ứng", group_code: "D01", score_2023: 27.60, score_2024: 27.85, score_2025: 28.00, tuition_fee_per_year: 25 },
+            { id: 8, school_code: "NTB", school_name: "ĐH Ngoại Thương", major_name: "Tài chính quốc tế", group_code: "D07", score_2023: 27.20, score_2024: 27.40, score_2025: 27.55, tuition_fee_per_year: 25 },
+            { id: 9, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân (NEU)", major_name: "Marketing", group_code: "D01", score_2023: 27.35, score_2024: 27.55, score_2025: 27.70, tuition_fee_per_year: 22 },
+            { id: 10, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân (NEU)", major_name: "Tài chính doanh nghiệp", group_code: "A00", score_2023: 26.85, score_2024: 27.05, score_2025: 27.20, tuition_fee_per_year: 22 },
+            { id: 11, school_code: "KHA", school_name: "ĐH Kinh tế Quốc dân (NEU)", major_name: "Kiểm toán & Phân tích dữ liệu", group_code: "D07", score_2023: 26.60, score_2024: 26.80, score_2025: 26.95, tuition_fee_per_year: 22 },
+            { id: 12, school_code: "YHB", school_name: "ĐH Y Hà Nội", major_name: "Y khoa (Bác sĩ Đa khoa)", group_code: "B00", score_2023: 27.73, score_2024: 28.27, score_2025: 28.40, tuition_fee_per_year: 55 },
+            { id: 13, school_code: "QHL", school_name: "ĐH Luật - ĐHQG Hà Nội", major_name: "Luật Kinh doanh", group_code: "C00", score_2023: 27.50, score_2024: 27.85, score_2025: 28.10, tuition_fee_per_year: 24 },
+            { id: 14, school_code: "SPH", school_name: "ĐH Sư phạm Hà Nội", major_name: "Sư phạm Toán học (Miễn học phí)", group_code: "A00", score_2023: 26.40, score_2024: 26.75, score_2025: 26.90, tuition_fee_per_year: 0 },
+            { id: 15, school_code: "SPH", school_name: "ĐH Sư phạm Hà Nội", major_name: "Sư phạm Ngữ văn (Miễn học phí)", group_code: "C00", score_2023: 27.80, score_2024: 28.30, score_2025: 28.50, tuition_fee_per_year: 0 },
 
-        // --- TOP TRUNG (Công nghiệp HN, Giao thông Vận tải, Mở HN, Thăng Long, Điện lực, Thương mại, Thủy lợi) ---
-        { id: 16, school_code: "DCN", school_name: "ĐH Công nghiệp Hà Nội", major_name: "Công nghệ thông tin", group_code: "A00", score_2023: 25.15, score_2024: 25.35, score_2025: 25.50, tuition_fee_per_year: 24, region: "Hà Nội" },
-        { id: 17, school_code: "DCN", school_name: "ĐH Công nghiệp Hà Nội", major_name: "Công nghệ kỹ thuật Ô tô", group_code: "A00", score_2023: 24.40, score_2024: 24.65, score_2025: 24.80, tuition_fee_per_year: 24, region: "Hà Nội" },
-        { id: 18, school_code: "GHA", school_name: "ĐH Giao thông Vận tải", major_name: "Logistics và Quản lý chuỗi cung ứng", group_code: "A00", score_2023: 25.80, score_2024: 26.05, score_2025: 26.15, tuition_fee_per_year: 18, region: "Hà Nội" },
-        { id: 19, school_code: "GHA", school_name: "ĐH Giao thông Vận tải", major_name: "Kỹ thuật phần mềm", group_code: "A01", score_2023: 25.10, score_2024: 25.30, score_2025: 25.45, tuition_fee_per_year: 18, region: "Hà Nội" },
-        { id: 20, school_code: "MHN", school_name: "ĐH Mở Hà Nội", major_name: "Thiết kế Đồ họa & Đa phương tiện", group_code: "D01", score_2023: 24.50, score_2024: 24.80, score_2025: 25.00, tuition_fee_per_year: 22, region: "Hà Nội" },
-        { id: 21, school_code: "MHN", school_name: "ĐH Mở Hà Nội", major_name: "Thương mại điện tử", group_code: "A00", score_2023: 24.70, score_2024: 24.90, score_2025: 25.10, tuition_fee_per_year: 22, region: "Hà Nội" },
-        { id: 22, school_code: "DTL", school_name: "ĐH Thăng Long", major_name: "Truyền thông đa phương tiện", group_code: "D01", score_2023: 24.10, score_2024: 24.30, score_2025: 24.50, tuition_fee_per_year: 34, region: "Hà Nội" },
-        { id: 23, school_code: "DDL", school_name: "ĐH Điện lực", major_name: "Công nghệ Kỹ thuật Điện - Điện tử", group_code: "A00", score_2023: 23.20, score_2024: 23.50, score_2025: 23.80, tuition_fee_per_year: 19, region: "Hà Nội" },
-        { id: 24, school_code: "TLA", school_name: "ĐH Thủy lợi", major_name: "Hệ thống thông tin", group_code: "A01", score_2023: 24.20, score_2024: 24.45, score_2025: 24.60, tuition_fee_per_year: 17, region: "Hà Nội" },
-        { id: 25, school_code: "DKD", school_name: "ĐH Dược Hà Nội", major_name: "Hóa dược", group_code: "D07", score_2023: 24.90, score_2024: 25.25, score_2025: 25.40, tuition_fee_per_year: 25, region: "Hà Nội" },
-        { id: 26, school_code: "YTC", school_name: "ĐH Y tế Công cộng", major_name: "Kỹ thuật Xét nghiệm Y học", group_code: "B00", score_2023: 23.80, score_2024: 24.10, score_2025: 24.30, tuition_fee_per_year: 24, region: "Hà Nội" },
-        { id: 27, school_code: "XHNV", school_name: "ĐH Khoa học Xã hội & Nhân văn", major_name: "Tâm lý học", group_code: "C00", score_2023: 26.80, score_2024: 27.20, score_2025: 27.40, tuition_fee_per_year: 16, region: "Hà Nội" },
+            // --- NHÓM 2: TOP TRUNG (ĐIỂM CHUẨN 20.5 - 25.4) ---
+            { id: 16, school_code: "BVH", school_name: "Học viện Công nghệ Bưu chính Viễn thông (PTIT)", major_name: "An toàn thông tin", group_code: "A00", score_2023: 25.40, score_2024: 25.65, score_2025: 25.80, tuition_fee_per_year: 27 },
+            { id: 17, school_code: "BVH", school_name: "Học viện Công nghệ Bưu chính Viễn thông (PTIT)", major_name: "Công nghệ Đa phương tiện", group_code: "D01", score_2023: 24.80, score_2024: 25.10, score_2025: 25.25, tuition_fee_per_year: 27 },
+            { id: 18, school_code: "DCN", school_name: "ĐH Công nghiệp Hà Nội (HaUI)", major_name: "Kỹ thuật Phần mềm", group_code: "A00", score_2023: 24.90, score_2024: 25.15, score_2025: 25.30, tuition_fee_per_year: 24 },
+            { id: 19, school_code: "DCN", school_name: "ĐH Công nghiệp Hà Nội (HaUI)", major_name: "Công nghệ Kỹ thuật Điện - Điện tử", group_code: "A01", score_2023: 23.85, score_2024: 24.15, score_2025: 24.40, tuition_fee_per_year: 24 },
+            { id: 20, school_code: "GHA", school_name: "ĐH Giao thông Vận tải", major_name: "Công nghệ thông tin", group_code: "A00", score_2023: 25.15, score_2024: 25.40, score_2025: 25.55, tuition_fee_per_year: 18 },
+            { id: 21, school_code: "GHA", school_name: "ĐH Giao thông Vận tải", major_name: "Kỹ thuật Ô tô", group_code: "A01", score_2023: 24.10, score_2024: 24.35, score_2025: 24.50, tuition_fee_per_year: 18 },
+            { id: 22, school_code: "NHB", school_name: "Học viện Ngân hàng", major_name: "Tài chính - Ngân hàng số", group_code: "D01", score_2023: 25.20, score_2024: 25.45, score_2025: 25.60, tuition_fee_per_year: 23 },
+            { id: 23, school_code: "NHB", school_name: "Học viện Ngân hàng", major_name: "Kế toán - Kiểm toán", group_code: "D07", score_2023: 24.60, score_2024: 24.85, score_2025: 25.00, tuition_fee_per_year: 23 },
+            { id: 24, school_code: "MHN", school_name: "ĐH Mở Hà Nội", major_name: "Thương mại điện tử", group_code: "A00", score_2023: 24.30, score_2024: 24.60, score_2025: 24.80, tuition_fee_per_year: 22 },
+            { id: 25, school_code: "DTL", school_name: "ĐH Thăng Long", major_name: "Quản trị dịch vụ du lịch & lữ hành", group_code: "D01", score_2023: 23.20, score_2024: 23.50, score_2025: 23.75, tuition_fee_per_year: 32 },
+            { id: 26, school_code: "DDL", school_name: "ĐH Điện lực", major_name: "Công nghệ Kỹ thuật Điều khiển", group_code: "A00", score_2023: 22.80, score_2024: 23.25, score_2025: 23.50, tuition_fee_per_year: 19 },
+            { id: 27, school_code: "LDA", school_name: "ĐH Công đoàn", major_name: "Quản trị nhân lực", group_code: "C00", score_2023: 24.20, score_2024: 24.50, score_2025: 24.75, tuition_fee_per_year: 15 },
+            { id: 28, school_code: "YTC", school_name: "ĐH Y tế Công cộng", major_name: "Kỹ thuật Phục hồi chức năng", group_code: "B00", score_2023: 22.90, score_2024: 23.30, score_2025: 23.60, tuition_fee_per_year: 24 },
 
-        // --- TOP AN TOÀN / DỄ TRÚNG TUYỂN (Mỏ - Địa chất, Lâm nghiệp, Đại Nam, Nguyễn Trãi) ---
-        { id: 28, school_code: "MDA", school_name: "ĐH Mỏ - Địa chất", major_name: "Mạng máy tính và Truyền thông dữ liệu", group_code: "A00", score_2023: 21.80, score_2024: 22.10, score_2025: 22.35, tuition_fee_per_year: 15, region: "Hà Nội" },
-        { id: 29, school_code: "MDA", school_name: "ĐH Mỏ - Địa chất", major_name: "Kỹ thuật Cơ khí động lực", group_code: "A01", score_2023: 19.50, score_2024: 20.00, score_2025: 20.50, tuition_fee_per_year: 15, region: "Hà Nội" },
-        { id: 30, school_code: "LNH", school_name: "ĐH Lâm nghiệp", major_name: "Hệ thống thông tin quản lý", group_code: "A00", score_2023: 17.50, score_2024: 18.00, score_2025: 18.50, tuition_fee_per_year: 13, region: "Hà Nội" },
-        { id: 31, school_code: "DDN", school_name: "ĐH Đại Nam", major_name: "Công nghệ thông tin", group_code: "A00", score_2023: 18.00, score_2024: 18.50, score_2025: 19.00, tuition_fee_per_year: 28, region: "Hà Nội" },
-        { id: 32, school_code: "DDN", school_name: "ĐH Đại Nam", major_name: "Ngôn ngữ Anh & Thương mại", group_code: "D01", score_2023: 17.50, score_2024: 18.00, score_2025: 18.50, tuition_fee_per_year: 26, region: "Hà Nội" },
-        { id: 33, school_code: "NTU", school_name: "ĐH Nguyễn Trãi", major_name: "Quan hệ công chúng (PR)", group_code: "C00", score_2023: 17.00, score_2024: 17.50, score_2025: 18.00, tuition_fee_per_year: 24, region: "Hà Nội" }
-    ];
+            // --- NHÓM 3: TOP AN TOÀN / ĐỊA PHƯƠNG (ĐIỂM CHUẨN 15.5 - 21.8) ---
+            { id: 29, school_code: "TLA", school_name: "ĐH Thủy lợi", major_name: "Kỹ thuật Xây dựng công trình", group_code: "A00", score_2023: 20.80, score_2024: 21.20, score_2025: 21.50, tuition_fee_per_year: 17 },
+            { id: 30, school_code: "MDA", school_name: "ĐH Mỏ - Địa chất", major_name: "Công nghệ thông tin địa học", group_code: "A00", score_2023: 20.50, score_2024: 21.00, score_2025: 21.30, tuition_fee_per_year: 15 },
+            { id: 31, school_code: "MDA", school_name: "ĐH Mỏ - Địa chất", major_name: "Quản trị kinh doanh mỏ", group_code: "A01", score_2023: 19.00, score_2024: 19.50, score_2025: 19.80, tuition_fee_per_year: 15 },
+            { id: 32, school_code: "LNH", school_name: "ĐH Lâm nghiệp", major_name: "Hệ thống thông tin quản lý", group_code: "A00", score_2023: 17.00, score_2024: 17.50, score_2025: 18.00, tuition_fee_per_year: 13 },
+            { id: 33, school_code: "DDN", school_name: "ĐH Đại Nam", major_name: "Dược học", group_code: "B00", score_2023: 21.00, score_2024: 21.00, score_2025: 21.50, tuition_fee_per_year: 36 },
+            { id: 34, school_code: "DDN", school_name: "ĐH Đại Nam", major_name: "Ngôn ngữ Anh thương mại", group_code: "D01", score_2023: 17.50, score_2024: 18.00, score_2025: 18.50, tuition_fee_per_year: 26 },
+            { id: 35, school_code: "DDO", school_name: "ĐH Đông Đô", major_name: "Thương mại điện tử & Truyền thông", group_code: "C00", score_2023: 16.50, score_2024: 17.00, score_2025: 17.50, tuition_fee_per_year: 20 }
+        ];
 
-    // Trạng thái danh sách các ngành đang hiển thị và 4 Nguyện Vọng đã chọn
-    let currentProcessedList = [];
-    let selectedNVIds = [];
+        let processedResults = [];
+        let pickedIds = [];
 
-    // Cập nhật tên môn học khi đổi Tổ hợp
-    function updateSubjectLabels() {
-        const group = document.getElementById('groupSelect').value;
-        const map = {
-            'ALL': ['Điểm Môn 1', 'Điểm Môn 2', 'Điểm Môn 3'],
-            'A00': ['Điểm Môn 1 (Toán)', 'Điểm Môn 2 (Vật lý)', 'Điểm Môn 3 (Hóa học)'],
-            'A01': ['Điểm Môn 1 (Toán)', 'Điểm Môn 2 (Vật lý)', 'Điểm Môn 3 (Tiếng Anh)'],
-            'D01': ['Điểm Môn 1 (Toán)', 'Điểm Môn 2 (Ngữ văn)', 'Điểm Môn 3 (Tiếng Anh)'],
-            'D07': ['Điểm Môn 1 (Toán)', 'Điểm Môn 2 (Hóa học)', 'Điểm Môn 3 (Tiếng Anh)'],
-            'B00': ['Điểm Môn 1 (Toán)', 'Điểm Môn 2 (Hóa học)', 'Điểm Môn 3 (Sinh học)'],
-            'C00': ['Điểm Môn 1 (Ngữ văn)', 'Điểm Môn 2 (Lịch sử)', 'Điểm Môn 3 (Địa lý)']
-        };
-        const labels = map[group] || map['ALL'];
-        document.getElementById('lblSub1').textContent = labels[0];
-        document.getElementById('lblSub2').textContent = labels[1];
-        document.getElementById('lblSub3').textContent = labels[2];
-    }
+        /* ==========================================================================
+           CHỨC NĂNG CHUYỂN ĐỔI LIGHT / DARK MODE MƯỢT MÀ
+           ========================================================================== */
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const current = htmlEl.getAttribute('data-theme');
+            const nextTheme = current === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', nextTheme);
 
-    /**
-     * HÀM TÍNH TOÁN LÕI:
-     * 1. C_kỳ_vọng = 0.5 * C_2025 + 0.3 * C_2024 + 0.2 * C_2023
-     * 2. Điểm xét tuyển (hỗ trợ cả chuẩn hóa Thang 40 -> Thang 30)
-     * 3. Delta = Điểm xét tuyển - C_kỳ_vọng
-     */
-    function calculateStudentTotalScore() {
-        const s1 = parseFloat(document.getElementById('scoreSub1').value) || 0;
-        const s2 = parseFloat(document.getElementById('scoreSub2').value) || 0;
-        const s3 = parseFloat(document.getElementById('scoreSub3').value) || 0;
-        const pri = parseFloat(document.getElementById('scorePriority').value) || 0;
-        const isScale40 = document.getElementById('scale40Toggle').checked;
+            document.getElementById('themeIcon').textContent = nextTheme === 'dark' ? '☀️' : '🌙';
+            document.getElementById('themeLabel').textContent = nextTheme === 'dark' ? 'Chế độ Sáng' : 'Chế độ Tối';
 
-        let total30 = 0;
-        let formulaText = "";
-
-        if (isScale40) {
-            const raw40 = (s1 * 2) + s2 + s3;
-            total30 = ((raw40 / 40) * 30) + pri;
-            formulaText = `[((${s1.toFixed(1)}×2 + ${s2.toFixed(1)} + ${s3.toFixed(1)}) / 40) × 30] + ${pri.toFixed(2)} (Đã chuẩn hóa Thang 30)`;
-        } else {
-            total30 = s1 + s2 + s3 + pri;
-            formulaText = `${s1.toFixed(2)} + ${s2.toFixed(2)} + ${s3.toFixed(2)} + ${pri.toFixed(2)} (Ưu tiên)`;
+            draw2DScatter();
         }
 
-        document.getElementById('totalScoreDisplay').textContent = total30.toFixed(2);
-        document.getElementById('scoreFormulaDesc').textContent = formulaText;
-        return total30;
-    }
-
-    function analyzeAspirations(withRecommendIfEmpty = false) {
-        const t0 = performance.now();
-        const studentScore = calculateStudentTotalScore();
-        const selectedGroup = document.getElementById('groupSelect').value;
-        const maxTuition = parseFloat(document.getElementById('maxTuition').value);
-
-        // Lọc dữ liệu theo Khối thi & Trần học phí
-        const filtered = UNIVERSITY_DATA.filter(item => {
-            const matchGroup = (selectedGroup === 'ALL') || (item.group_code === selectedGroup);
-            const matchTuition = item.tuition_fee_per_year <= maxTuition;
-            return matchGroup && matchTuition;
-        });
-
-        // Tính Điểm chuẩn kỳ vọng 3 năm và Delta
-        currentProcessedList = filtered.map(item => {
-            const expectedScore = (0.5 * item.score_2025) + (0.3 * item.score_2024) + (0.2 * item.score_2023);
-            const delta = studentScore - expectedScore;
-
-            let zone = 'DREAM';
-            if (delta >= 1.5) {
-                zone = 'SAFE';
-            } else if (delta >= 0 && delta < 1.5) {
-                zone = 'MATCH';
-            } else if (delta >= -1.5 && delta < 0) {
-                zone = 'RISK';
-            } else {
-                zone = 'DREAM';
-            }
-
-            return {
-                ...item,
-                expectedScore: Number(expectedScore.toFixed(2)),
-                delta: Number(delta.toFixed(2)),
-                zone
+        /* ==========================================================================
+           CẬP NHẬT TÊN MÔN HỌC THEO KHỐI THI
+           ========================================================================== */
+        function syncSubjectNames() {
+            const group = document.getElementById('examGroup').value;
+            const labelsMap = {
+                'ALL': ['Môn 1', 'Môn 2', 'Môn 3'],
+                'A00': ['Môn 1 (Toán)', 'Môn 2 (Vật lý)', 'Môn 3 (Hóa học)'],
+                'A01': ['Môn 1 (Toán)', 'Môn 2 (Vật lý)', 'Môn 3 (Tiếng Anh)'],
+                'D01': ['Môn 1 (Toán)', 'Môn 2 (Ngữ văn)', 'Môn 3 (Tiếng Anh)'],
+                'D07': ['Môn 1 (Toán)', 'Môn 2 (Hóa học)', 'Môn 3 (Tiếng Anh)'],
+                'B00': ['Môn 1 (Toán)', 'Môn 2 (Hóa học)', 'Môn 3 (Sinh học)'],
+                'C00': ['Môn 1 (Ngữ văn)', 'Môn 2 (Lịch sử)', 'Môn 3 (Địa lý)']
             };
-        });
-
-        // Sắp xếp trong từng cột theo Delta giảm dần
-        currentProcessedList.sort((a, b) => b.delta - a.delta);
-
-        renderMatrixColumns();
-        drawScatterPlot();
-
-        if (withRecommendIfEmpty && selectedNVIds.length === 0) {
-            autoRecommend4NV();
-        } else {
-            renderSelectedNVList();
+            const arr = labelsMap[group] || labelsMap['ALL'];
+            document.getElementById('lblSub1').textContent = arr[0];
+            document.getElementById('lblSub2').textContent = arr[1];
+            document.getElementById('lblSub3').textContent = arr[2];
         }
 
-        const t1 = performance.now();
-        document.getElementById('execTime').textContent = `${(t1 - t0).toFixed(1)} ms`;
-    }
+        /* ==========================================================================
+           TÍNH TỔNG ĐIỂM XÉT TUYỂN CỦA HỌC SINH (HỖ TRỢ QUY ĐỔI THANG 40 -> 30)
+           ========================================================================== */
+        function getStudentTotalScore() {
+            const m1 = parseFloat(document.getElementById('score1').value) || 0;
+            const m2 = parseFloat(document.getElementById('score2').value) || 0;
+            const m3 = parseFloat(document.getElementById('score3').value) || 0;
+            const pri = parseFloat(document.getElementById('scorePri').value) || 0;
+            const isScale40 = document.getElementById('scale40Check').checked;
 
-    function renderMatrixColumns() {
-        const safeItems = currentProcessedList.filter(i => i.zone === 'SAFE');
-        const matchItems = currentProcessedList.filter(i => i.zone === 'MATCH');
-        const riskItems = currentProcessedList.filter(i => i.zone === 'RISK');
-        const dreamItems = currentProcessedList.filter(i => i.zone === 'DREAM');
+            let total = 0;
+            let text = '';
 
-        // Cập nhật KPI Counters
-        document.getElementById('countSafe').textContent = safeItems.length;
-        document.getElementById('countMatch').textContent = matchItems.length;
-        document.getElementById('countRisk').textContent = riskItems.length;
-        document.getElementById('countDream').textContent = dreamItems.length;
-
-        document.getElementById('badgeSafe').textContent = `${safeItems.length} ngành`;
-        document.getElementById('badgeMatch').textContent = `${matchItems.length} ngành`;
-        document.getElementById('badgeRisk').textContent = `${riskItems.length} ngành`;
-        document.getElementById('badgeDream').textContent = `${dreamItems.length} ngành`;
-
-        document.getElementById('listSafe').innerHTML = buildColumnHTML(safeItems, 'delta-safe');
-        document.getElementById('listMatch').innerHTML = buildColumnHTML(matchItems, 'delta-match');
-        document.getElementById('listRisk').innerHTML = buildColumnHTML(riskItems, 'delta-risk');
-        document.getElementById('listDream').innerHTML = buildColumnHTML(dreamItems, 'delta-dream');
-    }
-
-    function buildColumnHTML(items, deltaClass) {
-        if (items.length === 0) {
-            return `<div class="empty-state">Không có ngành nào rơi vào vùng này với bộ lọc hiện tại.</div>`;
-        }
-
-        return items.map(item => {
-            const isSelected = selectedNVIds.includes(item.id);
-            const sign = item.delta >= 0 ? '+' : '';
-            const tuitionText = item.tuition_fee_per_year === 0 ? 'Miễn 100%' : `${item.tuition_fee_per_year} Tr/năm`;
-
-            return `
-                <div class="major-card ${isSelected ? 'selected' : ''}" onclick="toggleSelectMajor(${item.id})">
-                    <div class="card-top">
-                        <span class="school-tag">${item.school_code} • ${item.group_code}</span>
-                        <span class="delta-pill ${deltaClass}">Δ = ${sign}${item.delta.toFixed(2)}</span>
-                    </div>
-                    <div class="major-title">${item.major_name}</div>
-                    <div class="school-name">${item.school_name}</div>
-                    <div class="card-metrics">
-                        <span>Kỳ vọng 3 năm: <strong>${item.expectedScore.toFixed(2)}</strong></span>
-                        <span>Học phí: <strong>${tuitionText}</strong></span>
-                    </div>
-                    <div class="history-row">
-                        <span>23: ${item.score_2023} | 24: ${item.score_2024} | 25: ${item.score_2025}</span>
-                        <span class="select-indicator">${isSelected ? '✓ Đã chọn' : '+ Chọn NV'}</span>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
-
-    // Chọn / Bỏ chọn ngành vào danh sách 4 Nguyện Vọng Chiến Lược
-    function toggleSelectMajor(id) {
-        const idx = selectedNVIds.indexOf(id);
-        if (idx > -1) {
-            selectedNVIds.splice(idx, 1);
-        } else {
-            if (selectedNVIds.length >= 4) {
-                alert("Danh sách tối ưu giới hạn 4 Nguyện Vọng chiến lược (1 Mơ ước + 2 Vừa sức + 1 An toàn). Hãy xóa bớt 1 NV trước khi thêm mới!");
-                return;
+            if (isScale40) {
+                const raw40 = (m1 * 2) + m2 + m3;
+                total = ((raw40 / 40) * 30) + pri;
+                text = `[((${m1.toFixed(1)}×2 + ${m2.toFixed(1)} + ${m3.toFixed(1)}) / 40) × 30] + ${pri.toFixed(2)}`;
+            } else {
+                total = m1 + m2 + m3 + pri;
+                text = `${m1.toFixed(2)} + ${m2.toFixed(2)} + ${m3.toFixed(2)} + ${pri.toFixed(2)} (Ưu tiên)`;
             }
-            selectedNVIds.push(id);
-        }
-        renderMatrixColumns();
-        renderSelectedNVList();
-        drawScatterPlot();
-    }
 
-    // Thuật toán tự động đề xuất 4 Nguyện Vọng chuẩn cấu trúc: 1 Mơ ước/Cảnh báo + 2 Vừa sức + 1 An toàn
-    function autoRecommend4NV() {
-        selectedNVIds = [];
-        const riskOrDream = currentProcessedList.filter(i => i.zone === 'RISK' || i.zone === 'DREAM');
-        const matchList = currentProcessedList.filter(i => i.zone === 'MATCH');
-        const safeList = currentProcessedList.filter(i => i.zone === 'SAFE');
-
-        // 1 NV Mơ ước / Cảnh báo tiệm cận nhất (Delta gần 0 nhất từ phía âm)
-        if (riskOrDream.length > 0) {
-            selectedNVIds.push(riskOrDream[0].id);
+            document.getElementById('totalScoreVal').textContent = total.toFixed(2);
+            document.getElementById('formulaBreakdown').textContent = text;
+            return total;
         }
 
-        // 2 NV Vừa sức
-        for (let i = 0; i < matchList.length && selectedNVIds.length < 3; i++) {
-            selectedNVIds.push(matchList[i].id);
-        }
+        /* ==========================================================================
+           PHÂN TÍCH MA TRẬN 2D & ĐẨY DỮ LIỆU VÀO 4 CỘT
+           ========================================================================== */
+        function runMatrixAnalysis(autoPickIfEmpty = false) {
+            const studentTotal = getStudentTotalScore();
+            const groupFilter = document.getElementById('examGroup').value;
+            const maxFee = parseFloat(document.getElementById('tuitionFilter').value);
 
-        // 1 NV An toàn chốt chặn
-        if (safeList.length > 0 && selectedNVIds.length < 4) {
-            selectedNVIds.push(safeList[0].id);
-        }
+            const filtered = UNIVERSITY_DATA.filter(item => {
+                const passGroup = (groupFilter === 'ALL') || (item.group_code === groupFilter);
+                const passFee = item.tuition_fee_per_year <= maxFee;
+                return passGroup && passFee;
+            });
 
-        // Nếu vẫn chưa đủ 4 NV thì lấy bổ sung từ các danh sách còn lại
-        for (const item of currentProcessedList) {
-            if (selectedNVIds.length >= 4) break;
-            if (!selectedNVIds.includes(item.id)) {
-                selectedNVIds.push(item.id);
+            processedResults = filtered.map(item => {
+                // C_kỳ_vọng = 0.5 * C_2025 + 0.3 * C_2024 + 0.2 * C_2023
+                const expected = (0.5 * item.score_2025) + (0.3 * item.score_2024) + (0.2 * item.score_2023);
+                const delta = studentTotal - expected;
+
+                let zone = 'DREAM';
+                if (delta >= 1.5) zone = 'SAFE';
+                else if (delta >= 0 && delta < 1.5) zone = 'MATCH';
+                else if (delta >= -1.5 && delta < 0) zone = 'RISK';
+                else zone = 'DREAM';
+
+                return {
+                    ...item,
+                    expected: Number(expected.toFixed(2)),
+                    delta: Number(delta.toFixed(2)),
+                    zone
+                };
+            });
+
+            // Sắp xếp theo Delta giảm dần
+            processedResults.sort((a, b) => b.delta - a.delta);
+
+            document.getElementById('totalMatchedCount').textContent = processedResults.length;
+
+            render4Columns();
+            draw2DScatter();
+
+            if (autoPickIfEmpty && pickedIds.length === 0) {
+                autoPick4OptimalNV();
+            } else {
+                renderPickedSlots();
             }
         }
 
-        // Tự động sắp xếp theo Điểm chuẩn kỳ vọng giảm dần để tránh bẫy xếp ngược
-        sortSelectedOptimal();
-    }
+        function render4Columns() {
+            const safeArr = processedResults.filter(x => x.zone === 'SAFE');
+            const matchArr = processedResults.filter(x => x.zone === 'MATCH');
+            const riskArr = processedResults.filter(x => x.zone === 'RISK');
+            const dreamArr = processedResults.filter(x => x.zone === 'DREAM');
 
-    // Sắp xếp danh sách đã chọn theo Điểm chuẩn kỳ vọng giảm dần (NV1 cao nhất -> NV4 thấp nhất)
-    function sortSelectedOptimal() {
-        selectedNVIds.sort((idA, idB) => {
-            const itemA = UNIVERSITY_DATA.find(u => u.id === idA);
-            const itemB = UNIVERSITY_DATA.find(u => u.id === idB);
-            const expA = 0.5 * itemA.score_2025 + 0.3 * itemA.score_2024 + 0.2 * itemA.score_2023;
-            const expB = 0.5 * itemB.score_2025 + 0.3 * itemB.score_2024 + 0.2 * itemB.score_2023;
-            return expB - expA;
-        });
-        renderMatrixColumns();
-        renderSelectedNVList();
-        drawScatterPlot();
-    }
+            document.getElementById('kpiSafe').textContent = safeArr.length;
+            document.getElementById('kpiMatch').textContent = matchArr.length;
+            document.getElementById('kpiRisk').textContent = riskArr.length;
+            document.getElementById('kpiDream').textContent = dreamArr.length;
 
-    function renderSelectedNVList() {
-        const container = document.getElementById('selectedNVContainer');
-        document.getElementById('selectedCounter').textContent = `${selectedNVIds.length}/4 NV`;
+            document.getElementById('colCountSafe').textContent = `${safeArr.length} ngành`;
+            document.getElementById('colCountMatch').textContent = `${matchArr.length} ngành`;
+            document.getElementById('colCountRisk').textContent = `${riskArr.length} ngành`;
+            document.getElementById('colCountDream').textContent = `${dreamArr.length} ngành`;
 
-        const studentScore = calculateStudentTotalScore();
-        let hasReverseTrap = false;
-        let prevExpected = 999;
+            document.getElementById('colListSafe').innerHTML = generateCardsHTML(safeArr, 'delta-safe');
+            document.getElementById('colListMatch').innerHTML = generateCardsHTML(matchArr, 'delta-match');
+            document.getElementById('colListRisk').innerHTML = generateCardsHTML(riskArr, 'delta-risk');
+            document.getElementById('colListDream').innerHTML = generateCardsHTML(dreamArr, 'delta-dream');
+        }
 
-        const slotsHTML = [];
-        for (let i = 0; i < 4; i++) {
-            const id = selectedNVIds[i];
-            if (id) {
-                const raw = UNIVERSITY_DATA.find(u => u.id === id);
-                const exp = Number((0.5 * raw.score_2025 + 0.3 * raw.score_2024 + 0.2 * raw.score_2023).toFixed(2));
-                const delta = Number((studentScore - exp).toFixed(2));
-                const sign = delta >= 0 ? '+' : '';
+        function generateCardsHTML(list, badgeClass) {
+            if (list.length === 0) {
+                return `<div class="empty-col-msg">Chưa có ngành nào thuộc vùng này với bộ lọc hiện tại.</div>`;
+            }
 
-                if (exp > prevExpected + 0.05) {
-                    hasReverseTrap = true;
+            return list.map(item => {
+                const isPicked = pickedIds.includes(item.id);
+                const sign = item.delta >= 0 ? '+' : '';
+                const feeStr = item.tuition_fee_per_year === 0 ? 'Miễn 100%' : `${item.tuition_fee_per_year} Tr/năm`;
+
+                return `
+                    <div class="major-item-card ${isPicked ? 'is-picked' : ''}" onclick="togglePickMajor(${item.id})">
+                        <div class="card-row-1">
+                            <span class="code-badge">${item.school_code} • ${item.group_code}</span>
+                            <span class="delta-tag ${badgeClass}">Δ = ${sign}${item.delta.toFixed(2)}</span>
+                        </div>
+                        <div class="major-name-title">${item.major_name}</div>
+                        <div class="school-name-sub">${item.school_name}</div>
+                        <div class="card-stats-grid">
+                            <span>C_Kỳ vọng: <strong>${item.expected.toFixed(2)}</strong></span>
+                            <span>Học phí: <strong>${feeStr}</strong></span>
+                        </div>
+                        <div class="card-foot-history">
+                            <span>23: ${item.score_2023} | 24: ${item.score_2024} | 25: ${item.score_2025}</span>
+                            <span class="pick-status">${isPicked ? '✓ Đã chọn' : '+ Chọn NV'}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        /* ==========================================================================
+           CHỌN NHANH 4 NGUYỆN VỌNG TỐI ƯU & KIỂM TRA BẪY XẾP NGƯỢC
+           ========================================================================== */
+        function togglePickMajor(id) {
+            const index = pickedIds.indexOf(id);
+            if (index > -1) {
+                pickedIds.splice(index, 1);
+            } else {
+                if (pickedIds.length >= 4) {
+                    alert("Bạn đã chọn đủ 4 Nguyện Vọng chiến lược! Hãy bỏ chọn 1 ngành trước khi thêm ngành mới.");
+                    return;
                 }
-                prevExpected = exp;
+                pickedIds.push(id);
+            }
+            render4Columns();
+            renderPickedSlots();
+            draw2DScatter();
+        }
 
-                let zoneLabel = "An toàn";
-                let colorCode = "#34D399";
-                if (delta < -1.5) { zoneLabel = "Rủi ro cao"; colorCode = "#F87171"; }
-                else if (delta < 0) { zoneLabel = "Cảnh báo"; colorCode = "#FB923C"; }
-                else if (delta < 1.5) { zoneLabel = "Vừa sức"; colorCode = "#FBBF24"; }
+        function autoPick4OptimalNV() {
+            pickedIds = [];
+            const riskOrDream = processedResults.filter(x => x.zone === 'RISK' || x.zone === 'DREAM');
+            const matches = processedResults.filter(x => x.zone === 'MATCH');
+            const safeties = processedResults.filter(x => x.zone === 'SAFE');
 
-                slotsHTML.push(`
-                    <div class="nv-slot filled">
-                        <div style="display:flex; align-items:center;">
-                            <span class="nv-badge">NV${i + 1}</span>
-                            <div>
-                                <div style="font-weight:700; color:#F8FAFC;">${raw.school_code} - ${raw.major_name} (${raw.group_code})</div>
-                                <div style="font-size:0.74rem; color:#94A3B8;">
-                                    C_kỳ_vọng: <strong style="color:#E2E8F0;">${exp.toFixed(2)}</strong> | 
-                                    <strong style="color:${colorCode};">Δ = ${sign}${delta.toFixed(2)} (${zoneLabel})</strong>
+            // 1 NV Thử sức / Mơ ước sát điểm nhất
+            if (riskOrDream.length > 0) pickedIds.push(riskOrDream[0].id);
+
+            // 2 NV Vừa sức
+            for (let i = 0; i < matches.length && pickedIds.length < 3; i++) {
+                pickedIds.push(matches[i].id);
+            }
+
+            // 1 NV An toàn chốt chặn
+            if (safeties.length > 0 && pickedIds.length < 4) {
+                pickedIds.push(safeties[0].id);
+            }
+
+            // Bổ sung nếu danh sách lọc chưa đủ
+            for (const item of processedResults) {
+                if (pickedIds.length >= 4) break;
+                if (!pickedIds.includes(item.id)) pickedIds.push(item.id);
+            }
+
+            sortPickedByExpectedScore();
+        }
+
+        function sortPickedByExpectedScore() {
+            pickedIds.sort((idA, idB) => {
+                const a = UNIVERSITY_DATA.find(u => u.id === idA);
+                const b = UNIVERSITY_DATA.find(u => u.id === idB);
+                const expA = 0.5 * a.score_2025 + 0.3 * a.score_2024 + 0.2 * a.score_2023;
+                const expB = 0.5 * b.score_2025 + 0.3 * b.score_2024 + 0.2 * b.score_2023;
+                return expB - expA;
+            });
+            render4Columns();
+            renderPickedSlots();
+            draw2DScatter();
+        }
+
+        function renderPickedSlots() {
+            const box = document.getElementById('nvSlotsBox');
+            document.getElementById('pickedCounter').textContent = `${pickedIds.length}/4 NV`;
+            const studentTotal = getStudentTotalScore();
+
+            let hasReverseOrderTrap = false;
+            let previousExpected = 999;
+
+            const htmlArr = [];
+            for (let i = 0; i < 4; i++) {
+                const id = pickedIds[i];
+                if (id) {
+                    const item = UNIVERSITY_DATA.find(u => u.id === id);
+                    const exp = Number((0.5 * item.score_2025 + 0.3 * item.score_2024 + 0.2 * item.score_2023).toFixed(2));
+                    const delta = Number((studentTotal - exp).toFixed(2));
+                    const sign = delta >= 0 ? '+' : '';
+
+                    if (exp > previousExpected + 0.05) {
+                        hasReverseOrderTrap = true;
+                    }
+                    previousExpected = exp;
+
+                    let zoneLabel = "An toàn";
+                    let colorVar = "var(--safe-color)";
+                    if (delta < -1.5) { zoneLabel = "Rủi ro cao"; colorVar = "var(--dream-color)"; }
+                    else if (delta < 0) { zoneLabel = "Cảnh báo"; colorVar = "var(--risk-color)"; }
+                    else if (delta < 1.5) { zoneLabel = "Vừa sức"; colorVar = "var(--match-color)"; }
+
+                    htmlArr.push(`
+                        <div class="nv-slot-item active">
+                            <div style="display:flex; align-items:center;">
+                                <span class="nv-order-tag">NV${i + 1}</span>
+                                <div>
+                                    <div style="font-weight:700; color:var(--text-primary);">${item.school_code} - ${item.major_name} (${item.group_code})</div>
+                                    <div style="font-size:0.74rem; color:var(--text-muted);">
+                                        C_Kỳ vọng: <strong>${exp.toFixed(2)}</strong> &nbsp;|&nbsp;
+                                        <strong style="color:${colorVar};">Δ = ${sign}${delta.toFixed(2)} (${zoneLabel})</strong>
+                                    </div>
                                 </div>
                             </div>
+                            <button class="btn-remove-nv" onclick="togglePickMajor(${item.id})" title="Bỏ chọn">✕</button>
                         </div>
-                        <button class="nv-remove" onclick="toggleSelectMajor(${raw.id})" title="Xóa nguyện vọng này">✕</button>
-                    </div>
-                `);
-            } else {
-                slotsHTML.push(`
-                    <div class="nv-slot">
-                        <span style="color: var(--text-muted);">NV${i + 1}: Chưa chọn (Click vào thẻ ngành bên dưới để thêm)</span>
-                    </div>
-                `);
+                    `);
+                } else {
+                    htmlArr.push(`
+                        <div class="nv-slot-item">
+                            <span style="color:var(--text-muted);">NV${i + 1}: Chưa chọn (Click vào thẻ ngành bên dưới để thêm)</span>
+                        </div>
+                    `);
+                }
             }
+
+            box.innerHTML = htmlArr.join('');
+            document.getElementById('reverseOrderWarning').style.display = hasReverseOrderTrap ? 'block' : 'none';
         }
 
-        container.innerHTML = slotsHTML.join('');
-        document.getElementById('reverseTrapAlert').style.display = hasReverseTrap ? 'block' : 'none';
-    }
+        /* ==========================================================================
+           VẼ ĐỒ THỊ TỌA ĐỘ 2D TRÊN HTML5 CANVAS (TỰ ĐỘNG ĐỔI MÀU THEO LIGHT/DARK MODE)
+           ========================================================================== */
+        function draw2DScatter() {
+            const canvas = document.getElementById('scatter2D');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
 
-    /**
-     * VẼ BIỂU ĐỒ MA TRẬN TỌA ĐỘ 2D TRÊN HTML5 CANVAS
-     * Trục X: Học phí (0 -> 60 triệu/năm)
-     * Trục Y: Chỉ số Delta (-5.0 -> +6.0)
-     */
-    function drawScatterPlot() {
-        const canvas = document.getElementById('matrixCanvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width * window.devicePixelRatio;
-        canvas.height = rect.height * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            const W = rect.width;
+            const H = rect.height;
+            ctx.clearRect(0, 0, W, H);
 
-        const W = rect.width;
-        const H = rect.height;
-        ctx.clearRect(0, 0, W, H);
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const padL = 46, padR = 24, padT = 18, padB = 30;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
 
-        const padL = 48, padR = 24, padT = 20, padB = 32;
-        const plotW = W - padL - padR;
-        const plotH = H - padT - padB;
+            const minDelta = -5.0, maxDelta = 6.0;
+            const minFee = 0, maxFee = 60;
 
-        const minDelta = -5.0, maxDelta = 6.0;
-        const minFee = 0, maxFee = 60;
+            const mapX = (fee) => padL + (Math.min(Math.max(fee, minFee), maxFee) / maxFee) * plotW;
+            const mapY = (delta) => {
+                const c = Math.min(Math.max(delta, minDelta), maxDelta);
+                return padT + ((maxDelta - c) / (maxDelta - minDelta)) * plotH;
+            };
 
-        const mapX = (fee) => padL + (Math.min(Math.max(fee, minFee), maxFee) / maxFee) * plotW;
-        const mapY = (delta) => {
-            const clamped = Math.min(Math.max(delta, minDelta), maxDelta);
-            return padT + ((maxDelta - clamped) / (maxDelta - minDelta)) * plotH;
-        };
+            const ySafe = mapY(1.5);
+            const yMatch = mapY(0);
+            const yRisk = mapY(-1.5);
 
-        // Vẽ 4 dải nền màu tương ứng 4 vùng Delta
-        const yPlus15 = mapY(1.5);
-        const yZero = mapY(0);
-        const yMinus15 = mapY(-1.5);
+            // 4 vùng màu nền
+            ctx.fillStyle = isLight ? 'rgba(16, 185, 129, 0.10)' : 'rgba(16, 185, 129, 0.08)';
+            ctx.fillRect(padL, padT, plotW, ySafe - padT);
 
-        // Vùng An toàn (Delta >= 1.5)
-        ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
-        ctx.fillRect(padL, padT, plotW, yPlus15 - padT);
+            ctx.fillStyle = isLight ? 'rgba(245, 158, 11, 0.10)' : 'rgba(245, 158, 11, 0.08)';
+            ctx.fillRect(padL, ySafe, plotW, yMatch - ySafe);
 
-        // Vùng Vừa sức (0 <= Delta < 1.5)
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.08)';
-        ctx.fillRect(padL, yPlus15, plotW, yZero - yPlus15);
+            ctx.fillStyle = isLight ? 'rgba(249, 115, 22, 0.10)' : 'rgba(249, 115, 22, 0.08)';
+            ctx.fillRect(padL, yMatch, plotW, yRisk - yMatch);
 
-        // Vùng Cảnh báo (-1.5 <= Delta < 0)
-        ctx.fillStyle = 'rgba(249, 115, 22, 0.08)';
-        ctx.fillRect(padL, yZero, plotW, yMinus15 - yZero);
+            ctx.fillStyle = isLight ? 'rgba(239, 68, 68, 0.10)' : 'rgba(239, 68, 68, 0.08)';
+            ctx.fillRect(padL, yRisk, plotW, (padT + plotH) - yRisk);
 
-        // Vùng Rủi ro cao (Delta < -1.5)
-        ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
-        ctx.fillRect(padL, yMinus15, plotW, (padT + plotH) - yMinus15);
-
-        // Đường ngưỡng ngang
-        const drawThresholdLine = (val, color, label) => {
-            const y = mapY(val);
-            ctx.beginPath();
-            ctx.setLineDash([4, 4]);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            ctx.moveTo(padL, y);
-            ctx.lineTo(padL + plotW, y);
-            ctx.stroke();
-            ctx.setLineDash([]);
-
-            ctx.fillStyle = color;
-            ctx.font = '600 10px JetBrains Mono';
-            ctx.textAlign = 'right';
-            ctx.fillText(label, padL - 6, y + 3);
-        };
-
-        drawThresholdLine(1.5, '#10B981', '+1.5');
-        drawThresholdLine(0, '#F59E0B', '0.0');
-        drawThresholdLine(-1.5, '#EF4444', '-1.5');
-
-        // Trục X (Học phí)
-        ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
-        ctx.beginPath();
-        ctx.moveTo(padL, padT + plotH);
-        ctx.lineTo(padL + plotW, padT + plotH);
-        ctx.stroke();
-
-        [0, 15, 30, 45, 60].forEach(fee => {
-            const x = mapX(fee);
-            ctx.fillStyle = '#94A3B8';
-            ctx.font = '500 10px JetBrains Mono';
-            ctx.textAlign = 'center';
-            ctx.fillText(`${fee}Tr`, x, padT + plotH + 18);
-        });
-
-        // Vẽ các điểm Ngành học
-        currentProcessedList.forEach(item => {
-            const x = mapX(item.tuition_fee_per_year);
-            const y = mapY(item.delta);
-            const isSelected = selectedNVIds.includes(item.id);
-
-            let dotColor = '#EF4444';
-            if (item.zone === 'SAFE') dotColor = '#10B981';
-            else if (item.zone === 'MATCH') dotColor = '#F59E0B';
-            else if (item.zone === 'RISK') dotColor = '#F97316';
-
-            ctx.beginPath();
-            ctx.arc(x, y, isSelected ? 7 : 4.5, 0, Math.PI * 2);
-            ctx.fillStyle = dotColor;
-            ctx.fill();
-
-            if (isSelected) {
-                ctx.lineWidth = 2;
-                ctx.strokeStyle = '#FFFFFF';
+            // Đường ngưỡng Delta
+            const drawHLine = (val, color, label) => {
+                const y = mapY(val);
+                ctx.beginPath();
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 1;
+                ctx.moveTo(padL, y);
+                ctx.lineTo(padL + plotW, y);
                 ctx.stroke();
+                ctx.setLineDash([]);
 
-                ctx.fillStyle = '#F8FAFC';
-                ctx.font = '700 10px Inter';
-                ctx.textAlign = 'left';
-                ctx.fillText(`${item.school_code}`, x + 9, y + 3);
-            }
-        });
-    }
+                ctx.fillStyle = color;
+                ctx.font = '700 10px JetBrains Mono';
+                ctx.textAlign = 'right';
+                ctx.fillText(label, padL - 6, y + 3);
+            };
 
-    // Xuất Modal Báo Cáo 4 Nguyện Vọng Khuyên Dùng
-    function openExportModal() {
-        const studentName = document.getElementById('studentName').value || "Học sinh THPT";
-        const group = document.getElementById('groupSelect').value;
-        const totalScore = calculateStudentTotalScore();
+            drawHLine(1.5, '#10B981', '+1.5');
+            drawHLine(0, '#F59E0B', '0.0');
+            drawHLine(-1.5, '#EF4444', '-1.5');
 
-        let rowsHTML = "";
-        selectedNVIds.forEach((id, idx) => {
-            const item = UNIVERSITY_DATA.find(u => u.id === id);
-            const exp = Number((0.5 * item.score_2025 + 0.3 * item.score_2024 + 0.2 * item.score_2023).toFixed(2));
-            const delta = Number((totalScore - exp).toFixed(2));
-            const sign = delta >= 0 ? '+' : '';
-            let zoneText = "An toàn (Safety Net)";
-            if (delta < -1.5) zoneText = "Mơ ước / Rủi ro cao";
-            else if (delta < 0) zoneText = "Cảnh báo nhẹ (Cần nỗ lực)";
-            else if (delta < 1.5) zoneText = "Vừa sức (Gold Match)";
+            // Nhãn trục X (Học phí)
+            [0, 15, 30, 45, 60].forEach(fee => {
+                const x = mapX(fee);
+                ctx.fillStyle = isLight ? '#475569' : '#94A3B8';
+                ctx.font = '600 10px JetBrains Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText(`${fee}Tr`, x, padT + plotH + 18);
+            });
 
-            rowsHTML += `
-                <tr>
-                    <td><strong>NV${idx + 1}</strong></td>
-                    <td><strong>${item.school_code}</strong> - ${item.school_name}</td>
-                    <td>${item.major_name} (${item.group_code})</td>
-                    <td style="font-family:'JetBrains Mono',monospace;">${exp.toFixed(2)}</td>
-                    <td style="font-family:'JetBrains Mono',monospace;"><strong>${sign}${delta.toFixed(2)}</strong></td>
-                    <td>${zoneText}</td>
-                </tr>
-            `;
-        });
+            // Vẽ các điểm trường/ngành
+            processedResults.forEach(item => {
+                const x = mapX(item.tuition_fee_per_year);
+                const y = mapY(item.delta);
+                const isPicked = pickedIds.includes(item.id);
 
-        if (selectedNVIds.length === 0) {
-            rowsHTML = `<tr><td colspan="6" style="text-align:center;">Chưa chọn nguyện vọng nào.</td></tr>`;
+                let color = '#EF4444';
+                if (item.zone === 'SAFE') color = '#10B981';
+                else if (item.zone === 'MATCH') color = '#F59E0B';
+                else if (item.zone === 'RISK') color = '#F97316';
+
+                ctx.beginPath();
+                ctx.arc(x, y, isPicked ? 7 : 4.5, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+
+                if (isPicked) {
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = isLight ? '#0F172A' : '#FFFFFF';
+                    ctx.stroke();
+
+                    ctx.fillStyle = isLight ? '#0F172A' : '#F8FAFC';
+                    ctx.font = '700 10px Inter';
+                    ctx.textAlign = 'left';
+                    ctx.fillText(item.school_code, x + 9, y + 3);
+                }
+            });
         }
 
-        document.getElementById('exportContentArea').innerHTML = `
-            <div style="font-size: 0.9rem; color: #CBD5E1; margin-bottom: 12px;">
-                <div>Họ tên / Mật danh học sinh: <strong>${studentName}</strong>  |  Khối xét tuyển: <strong>${group}</strong></div>
-                <div>Tổng điểm xét tuyển quy chuẩn (Thang 30): <strong style="color:#22D3EE;">${totalScore.toFixed(2)} điểm</strong></div>
-            </div>
-            <table class="report-table">
-                <thead>
+        /* ==========================================================================
+           MODAL XUẤT BẢNG TÓM TẮT CHỤP MÀN HÌNH / IN ẤN
+           ========================================================================== */
+        function openSummaryModal() {
+            const student = document.getElementById('studentName').value || "Học sinh THPT";
+            const group = document.getElementById('examGroup').value;
+            const total = getStudentTotalScore();
+
+            let rows = '';
+            pickedIds.forEach((id, index) => {
+                const item = UNIVERSITY_DATA.find(u => u.id === id);
+                const exp = Number((0.5 * item.score_2025 + 0.3 * item.score_2024 + 0.2 * item.score_2023).toFixed(2));
+                const delta = Number((total - exp).toFixed(2));
+                const sign = delta >= 0 ? '+' : '';
+
+                let zoneLabel = "🟢 Vùng An toàn (Safety Net)";
+                if (delta < -1.5) zoneLabel = "🔴 Vùng Mơ ước / Rủi ro cao";
+                else if (delta < 0) zoneLabel = "🟠 Vùng Cảnh báo nhẹ";
+                else if (delta < 1.5) zoneLabel = "🟡 Vùng Vừa sức (Gold Match)";
+
+                rows += `
                     <tr>
-                        <th>Thứ tự</th>
-                        <th>Trường Đại học</th>
-                        <th>Ngành xét tuyển</th>
-                        <th>C_Kỳ vọng (23-25)</th>
-                        <th>Độ lệch Δ</th>
-                        <th>Phân vùng chiến thuật</th>
+                        <td><strong>NV${index + 1}</strong></td>
+                        <td><strong>${item.school_code}</strong> - ${item.school_name}</td>
+                        <td>${item.major_name} (${item.group_code})</td>
+                        <td style="font-family:'JetBrains Mono',monospace;">${exp.toFixed(2)}</td>
+                        <td style="font-family:'JetBrains Mono',monospace;"><strong>${sign}${delta.toFixed(2)}</strong></td>
+                        <td>${zoneLabel}</td>
                     </tr>
-                </thead>
-                <tbody>${rowsHTML}</tbody>
-            </table>
-            <p style="font-size: 0.78rem; color: #94A3B8;">
-                * Ghi chú: Điểm chuẩn kỳ vọng tính theo trọng số 0.5×C₂₀₂₅ + 0.3×C₂₀₂₄ + 0.2×C₂₀₂₃. Thứ tự nguyện vọng đã được kiểm duyệt chống bẫy xếp ngược ưu tiên.
-            </p>
-        `;
+                `;
+            });
 
-        document.getElementById('exportModal').style.display = 'flex';
-    }
+            if (!rows) {
+                rows = `<tr><td colspan="6" style="text-align:center;">Chưa có nguyện vọng nào được chọn.</td></tr>`;
+            }
 
-    function closeExportModal() {
-        document.getElementById('exportModal').style.display = 'none';
-    }
+            document.getElementById('modalReportContent').innerHTML = `
+                <div style="font-size:0.88rem; margin-bottom:10px;">
+                    Họ tên / Mật danh: <strong>${student}</strong> &nbsp;|&nbsp;
+                    Tổ hợp: <strong>${group}</strong> &nbsp;|&nbsp;
+                    Điểm xét tuyển (Thang 30): <strong style="color:var(--accent-cyan);">${total.toFixed(2)} điểm</strong>
+                </div>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Thứ tự</th>
+                            <th>Trường Đại học</th>
+                            <th>Ngành xét tuyển</th>
+                            <th>C_Kỳ vọng (23-25)</th>
+                            <th>Độ lệch Δ</th>
+                            <th>Phân tầng Rủi ro</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+                <div style="font-size:0.76rem; color:var(--text-muted);">
+                    * Công thức chuẩn: C_Kỳ_vọng = 0.5×C₂₀₂₅ + 0.3×C₂₀₂₄ + 0.2×C₂₀₂₃. Đã kiểm tra chống bẫy xếp ngược thứ tự ưu tiên.
+                </div>
+            `;
 
-    // Khởi chạy tự động ngay khi mở trang
-    window.addEventListener('DOMContentLoaded', () => {
-        updateSubjectLabels();
-        analyzeAspirations(true);
-    });
+            document.getElementById('summaryModal').style.display = 'flex';
+        }
 
-    window.addEventListener('resize', () => {
-        drawScatterPlot();
-    });
-</script>
+        function closeSummaryModal() {
+            document.getElementById('summaryModal').style.display = 'none';
+        }
+
+        // Khởi tạo ngay khi mở file
+        window.addEventListener('DOMContentLoaded', () => {
+            syncSubjectNames();
+            runMatrixAnalysis(true);
+        });
+
+        window.addEventListener('resize', () => {
+            draw2DScatter();
+        });
+    </script>
 </body>
 </html>
